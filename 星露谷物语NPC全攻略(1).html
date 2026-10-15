@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星露谷物语 NPC 行程 · 喜好 · 生日全攻略</title>
+<style>
+:root{
+  --bg:#f3ead3; --card:#fffdf4; --ink:#4a3a26; --ink-soft:#7a6a50;
+  --wood:#8a5a33; --wood-dark:#5f3d22; --line:#e3d5b8;
+  --green:#6f9a4d; --green-dark:#4e7a33; --blue:#5d8aa8; --pink:#d16b8c; --gold:#c9a227;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;background-image:radial-gradient(#e8dcc0 1px,transparent 1px);background-size:22px 22px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+/* ---------- Hero ---------- */
+.hero{background:linear-gradient(135deg,#7a4f2c,#a9744f 55%,#c69c6d);color:#fff8e7;padding:52px 0 44px;text-align:center;border-bottom:6px solid var(--wood-dark);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 12px,transparent 12px 24px);pointer-events:none}
+.hero h1{font-size:2.15rem;letter-spacing:2px;text-shadow:0 3px 0 rgba(0,0,0,.25);position:relative;z-index:1}
+.hero .sub{margin-top:10px;font-size:1rem;opacity:.95;position:relative;z-index:1}
+.hero .verify{display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px;position:relative;z-index:1}
+.hero .verify span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:5px 14px;font-size:.82rem}
+/* ---------- Nav ---------- */
+nav.toc{position:sticky;top:0;z-index:50;background:#fffdf4e6;backdrop-filter:blur(6px);border-bottom:2px solid var(--line);box-shadow:0 2px 10px rgba(90,60,30,.08)}
+nav.toc .wrap{display:flex;gap:4px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+nav.toc a{color:var(--wood-dark);text-decoration:none;font-size:.86rem;font-weight:600;padding:6px 12px;border-radius:8px}
+nav.toc a:hover{background:#f0e4c6;color:#3d2b16}
+/* ---------- Sections ---------- */
+section{padding:38px 0 8px}
+.sec-title{font-size:1.4rem;color:var(--wood-dark);border-left:8px solid var(--green);padding-left:12px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.sec-desc{color:var(--ink-soft);font-size:.92rem;margin-bottom:20px;padding-left:20px}
+/* ---------- Mechanics ---------- */
+.mech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.mech-card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 2px 0 #e7d9ba}
+.mech-card h3{color:var(--green-dark);font-size:1.02rem;margin-bottom:6px}
+.mech-card p{font-size:.9rem;color:var(--ink-soft)}
+/* ---------- Universal gifts ---------- */
+.uni-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.uni-box{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:18px}
+.uni-box h3{font-size:1.05rem;margin-bottom:10px}
+.uni-box ul{list-style:none}
+.uni-box li{font-size:.9rem;padding:4px 0 4px 22px;position:relative}
+.uni-box li::before{content:"◆";position:absolute;left:2px;color:var(--gold);font-size:.7rem;top:7px}
+.warn-box{grid-column:1/-1;background:#fdeef0;border-color:#eec2cc}
+.warn-box h3{color:#b23a55}
+.warn-box table{width:100%;border-collapse:collapse;font-size:.88rem}
+.warn-box td,.warn-box th{padding:6px 8px;border-bottom:1px dashed #eec2cc;text-align:left}
+.warn-box th{color:#b23a55}
+/* ---------- Calendar ---------- */
+.cal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cal-season{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;overflow:hidden}
+.season-title{font-size:1.05rem;margin-bottom:10px;padding:6px 10px;border-radius:8px;color:#fff}
+.season-title.s1{background:var(--green)}.season-title.s2{background:#d99b2b}.season-title.s3{background:#b0662a}.season-title.s4{background:var(--blue)}
+.cal-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.cal-table th{background:#f4e9cf;color:var(--wood-dark);padding:6px 8px;text-align:left;font-size:.8rem}
+.cal-table td{padding:6px 8px;border-bottom:1px dashed var(--line);vertical-align:top}
+.cal-day{white-space:nowrap;font-weight:700;color:var(--wood-dark)}
+.cal-name a{color:var(--green-dark);font-weight:700;text-decoration:none}
+.cal-name a:hover{text-decoration:underline}
+.cal-home{color:var(--ink-soft);font-size:.8rem}
+.cal-loves{color:#a2547b;font-size:.8rem}
+/* ---------- NPC cards ---------- */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 14px}
+.filter-bar input{flex:1;min-width:180px;border:2px solid var(--line);border-radius:8px;padding:8px 12px;font-size:.9rem;background:#fff;color:var(--ink)}
+.filter-bar input:focus{outline:none;border-color:var(--green)}
+.chips-filters{display:flex;gap:6px;flex-wrap:wrap}
+.fchip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:5px 14px;font-size:.82rem;cursor:pointer;color:var(--ink-soft);font-weight:600;user-select:none}
+.fchip.active{background:var(--green);border-color:var(--green-dark);color:#fff}
+.npc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.npc-card{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 3px 0 #e7d9ba;scroll-margin-top:70px}
+.npc-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:2px dashed var(--line);padding-bottom:10px;margin-bottom:10px}
+.npc-title h3{font-size:1.15rem;color:var(--wood-dark)}
+.npc-title .en{font-size:.78rem;color:var(--ink-soft);font-weight:400;margin-left:4px}
+.badges{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.bday-badge{background:#f4e9cf;color:var(--wood-dark);border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:700}
+.heart-badge{background:#fdeef0;color:#b23a55;border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:700}
+.npc-badge{background:#eef3e6;color:var(--green-dark);border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:700}
+.npc-home{font-size:.84rem;color:var(--ink-soft);align-self:flex-start}
+.gift-block{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:10px}
+.gift-col h4{font-size:.88rem;margin-bottom:6px}
+.gift-col h4 em{font-style:normal;font-size:.72rem;color:var(--ink-soft);font-weight:400;margin-left:4px}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:5px}
+.chips li{font-size:.78rem;border-radius:6px;padding:2px 8px;line-height:1.5}
+.chip-love{background:#fdeef0;color:#a83a58;border:1px solid #f0c6d1}
+.chip-like{background:#eef3e6;color:var(--green-dark);border:1px solid #d3e0bd}
+.sched h4{font-size:.88rem;margin-bottom:6px}
+.sched-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.sched-table td{padding:5px 8px;border-bottom:1px dashed var(--line);vertical-align:top}
+.sched-cond{white-space:nowrap;font-weight:700;color:var(--wood-dark);width:118px}
+.sched-detail{color:var(--ink-soft)}
+.tip{margin-top:10px;background:#f7f0dc;border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:8px 12px;font-size:.84rem;color:#6b5a3e}
+/* ---------- Find tips ---------- */
+.find-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.find-box{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px 18px}
+.find-box h3{font-size:1.02rem;color:var(--green-dark);margin-bottom:8px}
+.find-box ul{list-style:none}
+.find-box li{font-size:.88rem;padding:4px 0 4px 20px;position:relative;color:var(--ink-soft)}
+.find-box li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.clinic-table{width:100%;border-collapse:collapse;font-size:.84rem}
+.clinic-table th{background:#f4e9cf;color:var(--wood-dark);padding:6px 8px;text-align:left}
+.clinic-table td{padding:5px 8px;border-bottom:1px dashed var(--line)}
+.clinic-table td:first-child{font-weight:700;color:var(--wood-dark);white-space:nowrap}
+/* ---------- Errata ---------- */
+.errata-box{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:16px 18px}
+.errata-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.errata-table th{background:#f4e9cf;color:var(--wood-dark);padding:7px 10px;text-align:left}
+.errata-table td{padding:7px 10px;border-bottom:1px dashed var(--line);vertical-align:top}
+.errata-table td:first-child{font-weight:700;white-space:nowrap;color:var(--wood-dark)}
+.err-old{color:#b23a55;text-decoration:line-through}
+.err-new{color:var(--green-dark);font-weight:700}
+.src-note{margin-top:14px;font-size:.82rem;color:var(--ink-soft);background:#f7f0dc;border-radius:10px;padding:10px 14px}
+/* ---------- Footer ---------- */
+footer{margin-top:46px;background:var(--wood-dark);color:#e9dcc0;text-align:center;padding:22px 12px;font-size:.82rem}
+footer b{color:#ffd98a}
+.hidden{display:none!important}
+/* ---------- Heart events ---------- */
+.npc-name-btn{background:none;border:0;font:inherit;color:inherit;padding:0;cursor:pointer;display:inline-flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.npc-name-btn:hover{color:var(--green-dark)}
+.npc-name-btn .caret{font-size:.8rem;color:var(--pink)}
+.npc-name-btn .hint{font-size:.68rem;font-weight:400;color:var(--ink-soft);background:#f4e9cf;border-radius:999px;padding:1px 8px}
+.ev-badge{background:#f3e7f5;color:#8a4b93;border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:700}
+.sex-badge{border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.sex-badge.m{background:#e6f0fa;color:#2f6ea8}
+.sex-badge.f{background:#fdeef0;color:#b23a55}
+/* 剧情面板本体不再内联显示，仅作为弹窗内容源 */
+.ev-panel{display:none!important}
+.ev-title{font-size:.92rem;color:#8a4b93;margin-bottom:10px}
+.ev-item{background:#fdf8ef;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px}
+.ev-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.ev-heart{background:var(--pink);color:#fff;border-radius:999px;padding:2px 12px;font-size:.76rem;font-weight:700;white-space:nowrap}
+.ev-trig{font-size:.8rem;color:var(--wood-dark)}
+.ev-story{font-size:.84rem;color:var(--ink-soft);margin-bottom:8px;line-height:1.6}
+.ev-opts{width:100%;border-collapse:collapse;font-size:.8rem}
+.ev-opts th{background:#f4e9cf;color:var(--wood-dark);padding:5px 8px;text-align:left;font-size:.74rem}
+.ev-opts td{padding:5px 8px;border-bottom:1px dashed var(--line);vertical-align:top}
+.opt-text{width:34%;color:var(--ink)}
+.opt-val{text-align:center;font-weight:700;white-space:nowrap;width:64px}
+.opt-val.up{color:var(--green-dark)}
+.opt-val.down{color:#b23a55}
+.opt-val.zero{color:#9a8b6f}
+.opt-res{color:var(--ink-soft);font-size:.78rem}
+.ev-noopt{font-size:.78rem;color:#9a8b6f;padding:2px 0 4px}
+.ev-note{margin-top:8px;background:#fdeef0;border-left:4px solid var(--pink);border-radius:0 8px 8px 0;padding:6px 10px;font-size:.8rem;color:#8a3a55}
+.ev-note:empty{display:none}
+.ev-btns{display:flex;gap:8px;margin-left:auto}
+.ev-btn{border:2px solid var(--line);background:#fff;border-radius:999px;padding:5px 14px;font-size:.8rem;cursor:pointer;color:var(--ink-soft);font-weight:600}
+.ev-btn:hover{border-color:var(--pink);color:#8a4b93}
+/* ---------- Modal（普通网页弹窗） ---------- */
+body.modal-open{overflow:hidden}
+.modal-mask{position:fixed;inset:0;background:rgba(46,32,16,.55);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:36px 14px;overflow-y:auto}
+.modal-mask.show{display:flex}
+.modal-card{background:var(--card);border:2px solid var(--line);border-radius:16px;width:100%;max-width:780px;box-shadow:0 14px 44px rgba(40,26,10,.35);animation:pop .18s ease}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.modal-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;border-bottom:2px dashed var(--line);position:sticky;top:0;background:var(--card);border-radius:14px 14px 0 0;z-index:2}
+.modal-head h3{font-size:1.05rem;color:var(--wood-dark)}
+.modal-head .mcount{font-size:.78rem;color:#8a4b93;background:#f3e7f5;border-radius:999px;padding:2px 10px;font-weight:700}
+.modal-nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.modal-nav button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:4px 12px;font-size:.78rem;cursor:pointer;color:var(--ink-soft);font-weight:600}
+.modal-nav button:hover:not(:disabled){border-color:var(--pink);color:#8a4b93}
+.modal-nav button:disabled{opacity:.4;cursor:default}
+.modal-close{border:0;background:var(--wood-dark);color:#fff8e7;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;line-height:1;flex:0 0 auto}
+.modal-close:hover{background:#4a2f16}
+.modal-body{padding:14px 18px 18px;max-height:calc(100vh - 210px);overflow-y:auto}
+.modal-body .ev-item:last-child{margin-bottom:0}
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .npc-grid,.uni-grid,.cal-grid,.find-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.5rem}
+  .sched-cond{width:96px}
+  .ev-opts{font-size:.76rem}
+  .opt-text{width:44%}
+  .modal-mask{padding:14px 8px}
+  .modal-body{max-height:calc(100vh - 190px)}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>🌾 星露谷物语 NPC 全攻略</h1>
+    <p class="sub">行程速查 × 礼物喜好 × 生日日历 × 好感剧情 —— 34 位村民一次收齐</p>
+    <div class="verify">
+      <span>✅ 已对照 Stardew Valley Wiki 逐项核对</span>
+      <span>✅ 已用灰机 Wiki + 中文社区攻略交叉验证</span>
+      <span>✅ 好感剧情经 Wiki + B站专栏 + 中文攻略三源核对</span>
+      <span>🎮 适用版本 1.6（含 1.5/1.6 新增内容）</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#mechanics">📌 送礼机制</a>
+  <a href="#universal">🎁 通用礼物</a>
+  <a href="#events">💞 好感剧情</a>
+  <a href="#calendar">📅 生日日历</a>
+  <a href="#bachelors">💗 可结婚 NPC（12）</a>
+  <a href="#others">🏠 其他村民（22）</a>
+  <a href="#find">🔍 找人技巧</a>
+  <a href="#errata">📝 数据勘误</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="mechanics">
+  <h2 class="sec-title">📌 送礼核心机制</h2>
+  <p class="sec-desc">先懂规则再送礼：生日 + 品质是涨好感的两大杠杆，踩雷礼物会成倍倒扣。</p>
+  <div class="mech-grid"><div class="mech-card"><h3>📌 每周限送 2 次</h3><p>每位村民每周最多收 2 件礼物；配偶不限。</p></div><div class="mech-card"><h3>📌 生日加成 ×8</h3><p>生日当天可额外再送 1 件（共 3 件），好感度获得 8 倍效果。</p></div><div class="mech-card"><h3>📌 品质加成</h3><p>礼物品质影响收益：银星 +10%、金星 +25%、铱星 +50%，可与生日叠加。</p></div><div class="mech-card"><h3>📌 好感度数值</h3><p>最爱 +80 / 喜欢 +45 / 普通 +20 / 不喜欢 −20 / 讨厌 −40（均按品质与生日倍率放大）。</p></div><div class="mech-card"><h3>📌 爱心里程碑</h3><p>2 心可进部分 NPC 房间；4 / 6 / 8 / 10 心触发爱心事件；8 心送花束、10 心送人鱼吊坠求婚（可结婚对象），14 心最终事件。</p></div><div class="mech-card"><h3>📌 负面惩罚</h3><p>送不喜欢 / 讨厌的礼物会倒扣好感，生日当天同样 8 倍放大，千万别乱送。</p></div></div>
+</section>
+
+<section id="universal">
+  <h2 class="sec-title">🎁 通用最爱 / 通用喜欢</h2>
+  <p class="sec-desc">不认识某个 NPC 喜好时，下面两类礼物是安全牌；但有例外，务必看一眼红框。</p>
+  <div class="uni-grid">
+    <div class="uni-box">
+      <h3>❤️ 通用最爱（+80）</h3>
+      <ul><li>五彩碎片</li><li>兔子的脚</li><li>珍珠</li><li>黄金南瓜</li><li>魔法糖冰棍</li><li>星之果茶（1.6）</li></ul>
+    </div>
+    <div class="uni-box">
+      <h3>👍 通用喜欢（+45）</h3>
+      <ul><li>大多数花（虞美人除外）</li><li>宝石类矿物</li><li>蔬菜作物（啤酒花、小麦除外）</li><li>烹饪料理（面包、煎鸡蛋、奇怪的小面包除外）</li><li>工匠物品（油、虚空蛋黄酱除外）</li><li>果树果实（香蕉、芒果除外）</li><li>鸭毛（艾利欧特最爱）</li><li>动物毛（艾米丽最爱）</li></ul>
+    </div>
+    <div class="uni-box warn-box">
+      <h3>⚠️ 通用规则例外（重要）</h3>
+      <table><tbody><tr><td><b>海莉</b></td><td>讨厌五彩碎片——送她别用通用最爱</td></tr><tr><td><b>潘妮</b></td><td>讨厌兔子的脚；不喜欢鸭毛、动物毛</td></tr><tr><td><b>玛鲁</b></td><td>不喜欢枫糖浆</td></tr><tr><td><b>科罗布斯 / 威利</b></td><td>不喜欢生命药水</td></tr><tr><td><b>莉亚 / 皮埃尔 / 莱纳斯</b></td><td>不喜欢泪晶</td></tr></tbody></table>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <h2 class="sec-title">💞 好感剧情（爱心事件）规则</h2>
+  <p class="sec-desc">好感升到特定心数会触发专属剧情，很多选项直接加减好感。<b>点击任意 NPC 的名字</b>即可单独展开他的全部剧情、触发条件与选项收益。</p>
+  <div class="mech-grid"><div class="mech-card"><h3>❤️ 事件心级</h3><p>可结婚对象在 2 / 4 / 6 / 8 / 10 心各有一段专属事件；婚后另有 14 心事件。非婚村民多为 3 / 6 / 7 心，且大量以「邮寄食谱」形式出现。</p></div><div class="mech-card"><h3>🔒 8 心锁</h3><p>可结婚对象好感到 8 心即封顶，必须在皮埃尔杂货店买花束（200 金）赠送后才能继续升到 10 心。</p></div><div class="mech-card"><h3>📜 顺序触发</h3><p>必须按心数顺序看完前面的事件，好感达标但没看前置剧情不会触发下一段。</p></div><div class="mech-card"><h3>🌤 条件严格</h3><p>很多事件限定季节、天气、时间段，甚至限定「某 NPC 也在场」或「已收到信件」，触发不了先核对这四项。</p></div><div class="mech-card"><h3>💥 巨坑警告</h3><p>潘妮 8 心的「我受不了小孩」、10 心的拒绝告白各 -1500 好感（约 6 颗心），潘姆 9 心谈论信仰 -1000，务必避开。</p></div><div class="mech-card"><h3>🐰 群体 10 心事件</h3><p>同时把所有同性可结婚对象刷到 10 心并看完各自事件后，会触发群体事件：身上没带兔脚会被集体冷落、好感大跌。</p></div><div class="mech-card"><h3>🎬 电影与节日</h3><p>邀请 NPC 看电影并选择其喜欢的影片、花舞节邀请跳舞，都是送礼之外的高效好感来源。</p></div></div>
+</section>
+
+<section id="calendar">
+  <h2 class="sec-title">📅 全年生日日历</h2>
+  <p class="sec-desc">共 34 位村民。点击 NPC 名可跳到对应卡片；建议月初对照日历提前备礼。</p>
+  <div class="cal-grid">
+    <div class="cal-season">
+      <h3 class="season-title s1">春季 · 8 位</h3>
+      <table class="cal-table">
+        <thead><tr><th>日期</th><th>NPC</th><th>住址</th><th>首选最爱（前 3 样）</th></tr></thead>
+        <tbody><tr><td class="cal-day">春 4</td><td class="cal-name"><a href="#npc-kent">肯特</a></td><td class="cal-home">柳巷 1 号</td><td class="cal-loves">意式蕨菜炖饭、烤榛子</td></tr><tr><td class="cal-day">春 7</td><td class="cal-name"><a href="#npc-lewis">刘易斯</a></td><td class="cal-home">镇长的庄园</td><td class="cal-loves">秋日恩赐、琉璃山药、蔬菜杂烩</td></tr><tr><td class="cal-day">春 10</td><td class="cal-name"><a href="#npc-vincent">文森特</a></td><td class="cal-home">柳巷 1 号</td><td class="cal-loves">蔓越莓糖果、姜汁汽水、粉红蛋糕</td></tr><tr><td class="cal-day">春 14</td><td class="cal-name"><a href="#npc-haley">海莉</a></td><td class="cal-home">柳巷 2 号</td><td class="cal-loves">椰子、水果沙拉、粉红蛋糕</td></tr><tr><td class="cal-day">春 18</td><td class="cal-name"><a href="#npc-pam">潘姆</a></td><td class="cal-home">拖车</td><td class="cal-loves">啤酒、仙人掌果子、琉璃山药</td></tr><tr><td class="cal-day">春 20</td><td class="cal-name"><a href="#npc-shane">谢恩</a></td><td class="cal-home">玛妮的牧场</td><td class="cal-loves">啤酒、辣椒、爆炒青椒</td></tr><tr><td class="cal-day">春 26</td><td class="cal-name"><a href="#npc-pierre">皮埃尔</a></td><td class="cal-home">皮埃尔的杂货店</td><td class="cal-loves">炸鱿鱼、价格目录</td></tr><tr><td class="cal-day">春 27</td><td class="cal-name"><a href="#npc-emily">艾米丽</a></td><td class="cal-home">柳巷 2 号</td><td class="cal-loves">紫水晶、海蓝宝石、翡翠</td></tr></tbody>
+      </table>
+    </div>
+    <div class="cal-season">
+      <h3 class="season-title s2">夏季 · 9 位</h3>
+      <table class="cal-table">
+        <thead><tr><th>日期</th><th>NPC</th><th>住址</th><th>首选最爱（前 3 样）</th></tr></thead>
+        <tbody><tr><td class="cal-day">夏 4</td><td class="cal-name"><a href="#npc-jas">贾斯</a></td><td class="cal-home">玛妮的牧场</td><td class="cal-loves">玫瑰仙子、粉红蛋糕、葡萄干布丁</td></tr><tr><td class="cal-day">夏 8</td><td class="cal-name"><a href="#npc-gus">格斯</a></td><td class="cal-home">星之果实酒吧</td><td class="cal-loves">钻石、橙子、法式田螺</td></tr><tr><td class="cal-day">夏 10</td><td class="cal-name"><a href="#npc-maru">玛鲁</a></td><td class="cal-home">木匠的商店</td><td class="cal-loves">电池组、钻石、金锭</td></tr><tr><td class="cal-day">夏 13</td><td class="cal-name"><a href="#npc-alex">亚历克斯</a></td><td class="cal-home">河间大道 1 号</td><td class="cal-loves">完美早餐、鲑鱼晚餐、钢墙铁壁（健身书 Jack Be Nimble, Jack Be Thick，+1 防御）</td></tr><tr><td class="cal-day">夏 17</td><td class="cal-name"><a href="#npc-sam">山姆</a></td><td class="cal-home">柳巷 1 号</td><td class="cal-loves">仙人掌果子、枫糖棒、披萨</td></tr><tr><td class="cal-day">夏 19</td><td class="cal-name"><a href="#npc-demetrius">德米特里厄斯</a></td><td class="cal-home">木匠的商店</td><td class="cal-loves">豆类火锅、大米布丁、冰淇淋</td></tr><tr><td class="cal-day">夏 22</td><td class="cal-name"><a href="#npc-dwarf">矮人</a></td><td class="cal-home">矿井东部通道</td><td class="cal-loves">紫水晶、海蓝宝石、翡翠</td></tr><tr><td class="cal-day">夏 24</td><td class="cal-name"><a href="#npc-willy">威利</a></td><td class="cal-home">鱼店（海滩码头）</td><td class="cal-loves">鲶鱼、钻石、金锭</td></tr><tr><td class="cal-day">夏 26</td><td class="cal-name"><a href="#npc-leo">雷欧</a></td><td class="cal-home">姜岛 → 6 心后迁居深山树屋</td><td class="cal-loves">鸭毛、芒果、鸵鸟蛋</td></tr></tbody>
+      </table>
+    </div>
+    <div class="cal-season">
+      <h3 class="season-title s3">秋季 · 8 位</h3>
+      <table class="cal-table">
+        <thead><tr><th>日期</th><th>NPC</th><th>住址</th><th>首选最爱（前 3 样）</th></tr></thead>
+        <tbody><tr><td class="cal-day">秋 2</td><td class="cal-name"><a href="#npc-penny">潘妮</a></td><td class="cal-home">拖车（小镇南侧河边）</td><td class="cal-loves">钻石、绿宝石、甜瓜</td></tr><tr><td class="cal-day">秋 5</td><td class="cal-name"><a href="#npc-elliott">艾利欧特</a></td><td class="cal-home">艾利欧特小屋（海滩边）</td><td class="cal-loves">蟹黄糕、鸭毛、龙虾</td></tr><tr><td class="cal-day">秋 11</td><td class="cal-name"><a href="#npc-jodi">乔迪</a></td><td class="cal-home">柳巷 1 号</td><td class="cal-loves">巧克力蛋糕、薄煎饼、蔬菜杂烩</td></tr><tr><td class="cal-day">秋 13</td><td class="cal-name"><a href="#npc-abigail">阿比盖尔</a></td><td class="cal-home">皮埃尔的杂货店</td><td class="cal-loves">紫水晶、香蕉布丁、黑莓脆皮饼</td></tr><tr><td class="cal-day">秋 15</td><td class="cal-name"><a href="#npc-sandy">桑迪</a></td><td class="cal-home">沙漠绿洲</td><td class="cal-loves">番红花、黄水仙、芒果糯米饭</td></tr><tr><td class="cal-day">秋 18</td><td class="cal-name"><a href="#npc-marnie">玛妮</a></td><td class="cal-home">玛妮的牧场</td><td class="cal-loves">钻石、农夫午餐、粉红蛋糕</td></tr><tr><td class="cal-day">秋 21</td><td class="cal-name"><a href="#npc-robin">罗宾</a></td><td class="cal-home">木匠的商店</td><td class="cal-loves">山羊奶酪、桃子、意大利面</td></tr><tr><td class="cal-day">秋 24</td><td class="cal-name"><a href="#npc-george">乔治</a></td><td class="cal-home">河间大道 1 号</td><td class="cal-loves">炒蘑菇、韭葱</td></tr></tbody>
+      </table>
+    </div>
+    <div class="cal-season">
+      <h3 class="season-title s4">冬季 · 9 位</h3>
+      <table class="cal-table">
+        <thead><tr><th>日期</th><th>NPC</th><th>住址</th><th>首选最爱（前 3 样）</th></tr></thead>
+        <tbody><tr><td class="cal-day">冬 1</td><td class="cal-name"><a href="#npc-krobus">科罗布斯</a></td><td class="cal-home">下水道</td><td class="cal-loves">钻石、铱锭、南瓜</td></tr><tr><td class="cal-day">冬 3</td><td class="cal-name"><a href="#npc-linus">莱纳斯</a></td><td class="cal-home">煤矿森林的帐篷</td><td class="cal-loves">蓝莓千层酥、仙人掌果子、椰子</td></tr><tr><td class="cal-day">冬 7</td><td class="cal-name"><a href="#npc-caroline">卡洛琳</a></td><td class="cal-home">皮埃尔的杂货店</td><td class="cal-loves">鱼肉卷、绿茶、夏季亮片</td></tr><tr><td class="cal-day">冬 10</td><td class="cal-name"><a href="#npc-sebastian">塞巴斯蒂安</a></td><td class="cal-home">木匠的商店（地下室）</td><td class="cal-loves">泪晶、黑曜石、生鱼片</td></tr><tr><td class="cal-day">冬 14</td><td class="cal-name"><a href="#npc-harvey">哈维</a></td><td class="cal-home">哈维的诊所（兼住所）</td><td class="cal-loves">咖啡、巨无霸餐、腌菜</td></tr><tr><td class="cal-day">冬 17</td><td class="cal-name"><a href="#npc-wizard">法师</a></td><td class="cal-home">法师塔（煤矿森林西侧）</td><td class="cal-loves">神秘之书（Book of Mysteries）、紫蘑菇、太阳精华</td></tr><tr><td class="cal-day">冬 20</td><td class="cal-name"><a href="#npc-evelyn">艾芙琳</a></td><td class="cal-home">河间大道 1 号</td><td class="cal-loves">甜菜、钻石、巧克力蛋糕</td></tr><tr><td class="cal-day">冬 23</td><td class="cal-name"><a href="#npc-leah">莉亚</a></td><td class="cal-home">煤渣森林的莉亚农舍</td><td class="cal-loves">山羊奶酪、松露、果酒</td></tr><tr><td class="cal-day">冬 26</td><td class="cal-name"><a href="#npc-clint">克林特</a></td><td class="cal-home">铁匠铺</td><td class="cal-loves">紫水晶、海蓝宝石、绿宝石</td></tr></tbody>
+      </table>
+    </div></div>
+</section>
+
+<section id="bachelors">
+  <h2 class="sec-title">💗 可结婚对象（12 位）</h2>
+  <p class="sec-desc">6 男 6 女。8 心送花束，10 心送人鱼吊坠求婚，14 心最终事件。2 心可进卧室（部分需更高）；点 NPC 名字可看剧情弹窗。</p>
+  <div class="filter-bar">
+    <input id="npcSearch" type="search" placeholder="🔍 搜索 NPC 名字 / 英文名 / 礼物 / 剧情关键词…">
+    <div class="chips-filters">
+      <span class="fchip active" data-f="all">全部</span>
+      <span class="fchip" data-f="marry-male">♂ 可结婚男性</span>
+      <span class="fchip" data-f="marry-female">♀ 可结婚女性</span>
+      <span class="fchip" data-f="other">普通村民</span>
+      <span class="fchip" data-f="special">特殊居住地</span>
+    </div>
+    <div class="ev-btns">
+      <button class="ev-btn" id="allEvents" type="button">📜 全部剧情一览</button>
+    </div>
+  </div>
+  <div class="npc-grid">
+    <article id="npc-sebastian" class="npc-card" data-name="塞巴斯蒂安" data-en="Sebastian" data-search="塞巴斯蒂安 sebastian 木匠的商店（地下室） 低于 6 心基本宅在地下室，尽早送到 2 心才能进他房间；泪晶在矿井 40–79 层可采，冬季 10 日生日前可提前备好。 泪晶 黑曜石 生鱼片 南瓜汤 虚空蛋 青蛙蛋 战斗季刊 比目鱼 怪物图鉴 石英 2 心 塞巴斯蒂安在家时进入他的房间（地下室） 他在电脑前赶工让你稍等；山姆发消息约他出门被拒，罗宾进门说阿比盖尔待会儿要来，他抱怨没人把他的工作当回事。 问他最近在忙什么 夸他的房间装饰 问他的职业目标 问他为什么不愿见朋友 4 心 11:00–17:00 前往深山 他在自家车库里修摩托车，说有时会独自骑很远，问你要不要哪天一起兜风。 听起来很有趣。 不了，听起来很蠢。 我怕摩托车。 6 心 塞巴斯蒂安在家时进入他的房间 他拉你和山姆一起玩《solarion chronicles》桌游，先选职业，再按情景做选择，最后会拿到 a–d 的评分。 「战士。我喜欢直来直去。」 「治疗者。我更愿意帮助别人。」 「法师。锋利的头脑才是最强的利刃。」 8 心 雨天的 12:00–23:00 前往海滩 他站在木栈道上，很意外你雨天出门；说自己在别人面前会焦虑，但和你在一起不会，然后撑开伞示意你一起躲雨。 10 心 20:00–24:00 前往深山（需已送花束解锁恋爱） 他在屋外准备骑摩托，邀你一起，带你去他常去的那处能俯瞰城市夜景的地方，随后正式表明心意。 14 心（婚后） 雨天的 6:00–19:00 前往深山 他在湖边发现一只受伤的青蛙，拉你一起救助，最后把青蛙带回家养。 「我们该拿它怎么办？」 「这是我们的新儿子……」 「我觉得它撑不过去了」 「我们把它养好吧！」 「不如开个『青蛙保护区』？」 「它会没事的。」 「你为什么这么喜欢青蛙？」 「我可不想家里养这个」 「很高兴你找到新爱好了」" data-tags="marry marry-male male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-sebastian" aria-expanded="false">塞巴斯蒂安 <span class="en">Sebastian</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 10 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 木匠的商店（地下室）</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">泪晶</li>
+<li class="chip-love">黑曜石</li>
+<li class="chip-love">生鱼片</li>
+<li class="chip-love">南瓜汤</li>
+<li class="chip-love">虚空蛋</li>
+<li class="chip-love">青蛙蛋</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">战斗季刊</li>
+<li class="chip-like">比目鱼</li>
+<li class="chip-like">怪物图鉴</li>
+<li class="chip-like">石英</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–18:30 在家 → 18:30–21:30 湖边长椅抽烟 → 21:30 后回家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–15:00 家 → 15:00–21:10 酒吧 → 21:10–23:10 家</td></tr>
+<tr><td class="sched-cond">周六</td><td class="sched-detail">6:00–9:00 家 → 9:00–19:30 山姆家 / 自己房间 → 19:40 后回家</td></tr>
+<tr><td class="sched-cond">周四（铁路解锁后）</td><td class="sched-detail">6:00–14:00 家 → 14:00–21:30 火车站 → 21:30–22:20 家</td></tr>
+<tr><td class="sched-cond">雨天①</td><td class="sched-detail">6:00–10:30 家 → 10:30–17:00 沙滩 → 17:00–19:40 家</td></tr>
+<tr><td class="sched-cond">雨天②</td><td class="sched-detail">6:00–15:00 家 → 15:00–21:10 酒吧 → 21:10–23:10 家</td></tr>
+<tr><td class="sched-cond">秋季日常</td><td class="sched-detail">6:00–12:00 家 → 12:00–16:00 湖边 → 16:00–21:30 家</td></tr>
+<tr><td class="sched-cond">夏季 4 日 / 冬季 16 日</td><td class="sched-detail">分别去哈维诊所体检（10:00–16:00）/ 夜市</td></tr>
+<tr><td class="sched-cond">11 日 / 25 日</td><td class="sched-detail">友谊低于 6 心时全天在家</td></tr></table>
+      </div>
+      <div class="tip">💡 低于 6 心基本宅在地下室，尽早送到 2 心才能进他房间；泪晶在矿井 40–79 层可采，冬季 10 日生日前可提前备好。</div>
+      <div class="ev-panel" id="ev-sebastian"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：塞巴斯蒂安在家时进入他的房间（地下室）</span></div><p class="ev-story">他在电脑前赶工让你稍等；山姆发消息约他出门被拒，罗宾进门说阿比盖尔待会儿要来，他抱怨没人把他的工作当回事。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">问他最近在忙什么</td><td class="opt-val zero">无影响</td><td class="opt-res">他说自己是做自由职业的程序员</td></tr><tr><td class="opt-text">夸他的房间装饰</td><td class="opt-val zero">无影响</td><td class="opt-res">他有点不好意思，说海报贴了很多年有点乱</td></tr><tr><td class="opt-text">问他的职业目标</td><td class="opt-val zero">无影响</td><td class="opt-res">他在攒钱搬去城里，更喜欢自由职业</td></tr><tr><td class="opt-text">问他为什么不愿见朋友</td><td class="opt-val zero">无影响</td><td class="opt-res">他说需要大量独处时间来平衡社交</td></tr></tbody></table><div class="ev-note">💡 四个选项都不影响好感，纯看剧情。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：11:00–17:00 前往深山</span></div><p class="ev-story">他在自家车库里修摩托车，说有时会独自骑很远，问你要不要哪天一起兜风。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">听起来很有趣。</td><td class="opt-val zero">无影响</td><td class="opt-res">他说「太好了」</td></tr><tr><td class="opt-text">不了，听起来很蠢。</td><td class="opt-val zero">无影响</td><td class="opt-res">他淡淡地说「好吧…当我没说」</td></tr><tr><td class="opt-text">我怕摩托车。</td><td class="opt-val zero">无影响</td><td class="opt-res">他保证会先教你、保证你的安全</td></tr></tbody></table><div class="ev-note">💡 同样不影响好感，选最符合你人设的即可。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：塞巴斯蒂安在家时进入他的房间</span></div><p class="ev-story">他拉你和山姆一起玩《Solarion Chronicles》桌游，先选职业，再按情景做选择，最后会拿到 A–D 的评分。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「战士。我喜欢直来直去。」</td><td class="opt-val zero">无影响</td><td class="opt-res">不影响好感</td></tr><tr><td class="opt-text">「治疗者。我更愿意帮助别人。」</td><td class="opt-val zero">无影响</td><td class="opt-res">不影响好感</td></tr><tr><td class="opt-text">「法师。锋利的头脑才是最强的利刃。」</td><td class="opt-val zero">无影响</td><td class="opt-res">不影响好感</td></tr></tbody></table><div class="ev-note">💡 职业不影响好感，按提示走可拿满分：走前门 → 选择打骷髅并举起盾 → 走左边的路。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：雨天的 12:00–23:00 前往海滩</span></div><p class="ev-story">他站在木栈道上，很意外你雨天出门；说自己在别人面前会焦虑，但和你在一起不会，然后撑开伞示意你一起躲雨。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项，纯剧情推进，是告白前的铺垫。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：20:00–24:00 前往深山（需已送花束解锁恋爱）</span></div><p class="ev-story">他在屋外准备骑摩托，邀你一起，带你去他常去的那处能俯瞰城市夜景的地方，随后正式表明心意。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 看完即可准备美人鱼吊坠求婚。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：雨天的 6:00–19:00 前往深山</span></div><p class="ev-story">他在湖边发现一只受伤的青蛙，拉你一起救助，最后把青蛙带回家养。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「我们该拿它怎么办？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「这是我们的新儿子……」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我觉得它撑不过去了」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我们把它养好吧！」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「不如开个『青蛙保护区』？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「它会没事的。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「你为什么这么喜欢青蛙？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我可不想家里养这个」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「很高兴你找到新爱好了」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 全部选项均无好感影响，属于婚后日常彩蛋。</div></div></div></div>
+    </article>
+    <article id="npc-sam" class="npc-card" data-name="山姆" data-en="Sam" data-search="山姆 sam 柳巷 1 号 最爱枫糖棒（春季枫树采树液即可做）和虎眼石（矿层常见）；夏季白天去沙滩最容易找到他。 仙人掌果子 枫糖棒 披萨 虎眼石 joja 可乐 2 心 山姆在家时进入他的家 他和塞巴斯蒂安在房里玩音乐，说想组乐队但拿不准风格，问你喜欢哪种音乐。 欢快的流行乐。 实验性噪音摇滚。 高能量舞曲。 乡村小酒馆式的乡村乐。 3 心 第 1 年内、非冬季的晴天 7:00–15:00 进入海滩 他看着弟弟文森特在沙滩玩，文森特问爸爸什么时候回家；他安慰了弟弟，却担心自己给了他不切实际的希望。 对孩子最好诚实一点。 你做得对，孩子应该抱有希望。 4 心 山姆在家时进入他的家 他在厨房给你拿零食时把鸡蛋摔在地上，妈妈乔迪闻声赶来，问到底怎么回事。 是山姆递给我的时候掉的。 山姆递给我之后是我自己掉的。 山姆是故意摔的，他觉得好玩。 6 心 非雨天的 12:00–16:00 进入小镇 他踩滑板碾过艾米丽和海莉家的花箱，被刘易斯当场抓包，镇长征求你的意见。 您说得对，山姆该尊重私人财产。 别怪山姆，镇上根本没别的地方可滑！ 这事我就不掺和了。 8 心 6:00–8:00 他出现在你家门口（必须先看过 2 心事件） 他邀你去祖祖城看他乐队演出，约你 16:00–19:00 在巴士站集合。此事件不需要修复巴士。 10 心 收到他的信后，晴天 20:00–24:00 进入小镇 他把你偷偷带进自己房间谈心，正要表白时妈妈敲门，他让你躲进被子里，随后是经典告白桥段。 从床上起来。 靠近他。 走向窗户。 待着不动。 14 心（婚后） 上午 6:10–17:00 进入至少升级两次的农舍（他在里面），之后每隔三天触发下一段 他觉得自己婚后变懒了想找点事做，收到《快乐祝尼魔秀》配乐的工作邀约，虽然不太符合预期但开始认真考虑。 就当是职业生涯的跳板吧…… 想想你会让多少孩子开心！ 我很抱歉…… 这对你来说应该很简单吧…… 你可以找你弟弟帮忙啊！" data-tags="marry marry-male male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-sam" aria-expanded="false">山姆 <span class="en">Sam</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 17 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 7 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 柳巷 1 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">仙人掌果子</li>
+<li class="chip-love">枫糖棒</li>
+<li class="chip-love">披萨</li>
+<li class="chip-love">虎眼石</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">Joja 可乐</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">春季日常</td><td class="sched-detail">6:00–13:40 家 → 13:40–18:30 刘易斯家附近 → 18:30–21:00 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–13:40 家 → 13:40–19:00 沙滩（常和文森特）→ 19:00–21:00 家</td></tr>
+<tr><td class="sched-cond">秋季日常</td><td class="sched-detail">6:00–13:20 家 → 13:20–19:00 煤矿森林 → 19:00–21:00 家</td></tr>
+<tr><td class="sched-cond">冬季日常</td><td class="sched-detail">6:00–13:20 家 → 13:20–19:00 酒吧 → 19:00–21:00 家</td></tr>
+<tr><td class="sched-cond">周一 / 周三</td><td class="sched-detail">6:00–11:00 家 → 11:00–16:00 Joja 超市（社区中心修复后改去博物馆）→ 16:00–21:30 家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–15:00 家 → 15:00–21:20 酒吧 → 21:20–22:20 家</td></tr>
+<tr><td class="sched-cond">周六</td><td class="sched-detail">6:00–8:00 家 → 8:00–19:40 家门口 / 房间 → 19:40 后回家</td></tr>
+<tr><td class="sched-cond">雨天</td><td class="sched-detail">行程一全天在家；行程二 14:00 后去酒吧</td></tr>
+<tr><td class="sched-cond">秋季 11 日 / 冬季 17 日</td><td class="sched-detail">分别去哈维诊所体检（11:30–16:00）/ 夜市</td></tr>
+<tr><td class="sched-cond">9 日 / 23 日</td><td class="sched-detail">与潘妮、塞巴斯蒂安友谊均低于 6 心时在冰淇淋摊附近闲逛</td></tr></table>
+      </div>
+      <div class="tip">💡 最爱枫糖棒（春季枫树采树液即可做）和虎眼石（矿层常见）；夏季白天去沙滩最容易找到他。</div>
+      <div class="ev-panel" id="ev-sam"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 7 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：山姆在家时进入他的家</span></div><p class="ev-story">他和塞巴斯蒂安在房里玩音乐，说想组乐队但拿不准风格，问你喜欢哪种音乐。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">欢快的流行乐。</td><td class="opt-val zero">无影响</td><td class="opt-res">他说这正是他想做的风格</td></tr><tr><td class="opt-text">实验性噪音摇滚。</td><td class="opt-val zero">无影响</td><td class="opt-res">同上，风格会写进后续 8 心演出</td></tr><tr><td class="opt-text">高能量舞曲。</td><td class="opt-val zero">无影响</td><td class="opt-res">同上</td></tr><tr><td class="opt-text">乡村小酒馆式的乡村乐。</td><td class="opt-val zero">无影响</td><td class="opt-res">同上</td></tr></tbody></table><div class="ev-note">💡 这里的选择会决定 8 心演出时放的曲风；跳过此事件则默认流行乐。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：第 1 年内、非冬季的晴天 7:00–15:00 进入海滩</span></div><p class="ev-story">他看着弟弟文森特在沙滩玩，文森特问爸爸什么时候回家；他安慰了弟弟，却担心自己给了他不切实际的希望。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">对孩子最好诚实一点。</td><td class="opt-val zero">无影响</td><td class="opt-res">他先质疑，最后认同孩子总得认识真实的世界</td></tr><tr><td class="opt-text">你做得对，孩子应该抱有希望。</td><td class="opt-val zero">无影响</td><td class="opt-res">他很高兴，说孩子该多享受童年</td></tr></tbody></table><div class="ev-note">💡 仅在游戏第 1 年发生，错过就看不到了。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：山姆在家时进入他的家</span></div><p class="ev-story">他在厨房给你拿零食时把鸡蛋摔在地上，妈妈乔迪闻声赶来，问到底怎么回事。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">是山姆递给我的时候掉的。</td><td class="opt-val down">-10</td><td class="opt-res">他有点怨你</td></tr><tr><td class="opt-text">山姆递给我之后是我自己掉的。</td><td class="opt-val up">+50</td><td class="opt-res">他感激你替他背锅</td></tr><tr><td class="opt-text">山姆是故意摔的，他觉得好玩。</td><td class="opt-val down">-50</td><td class="opt-res">明显翻车选项</td></tr></tbody></table><div class="ev-note">💡 唯一影响好感的选项组：替他背锅 +50，恶意调侃 -50。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：非雨天的 12:00–16:00 进入小镇</span></div><p class="ev-story">他踩滑板碾过艾米丽和海莉家的花箱，被刘易斯当场抓包，镇长征求你的意见。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">您说得对，山姆该尊重私人财产。</td><td class="opt-val zero">无影响</td><td class="opt-res">他不太高兴但还是认了</td></tr><tr><td class="opt-text">别怪山姆，镇上根本没别的地方可滑！</td><td class="opt-val zero">无影响</td><td class="opt-res">他很开心，刘易斯无奈道歉</td></tr><tr><td class="opt-text">这事我就不掺和了。</td><td class="opt-val zero">无影响</td><td class="opt-res">刘易斯走后他笑着问你有没有看到他那招</td></tr></tbody></table><div class="ev-note">💡 三个选项都不影响好感。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：6:00–8:00 他出现在你家门口（必须先看过 2 心事件）</span></div><p class="ev-story">他邀你去祖祖城看他乐队演出，约你 16:00–19:00 在巴士站集合。此事件不需要修复巴士。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 看完演出好感大涨，别错过约定时间。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：收到他的信后，晴天 20:00–24:00 进入小镇</span></div><p class="ev-story">他把你偷偷带进自己房间谈心，正要表白时妈妈敲门，他让你躲进被子里，随后是经典告白桥段。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">从床上起来。</td><td class="opt-val zero">无影响</td><td class="opt-res">会再给出后续两个选项</td></tr><tr><td class="opt-text">靠近他。</td><td class="opt-val zero">无影响</td><td class="opt-res">你们相吻，正式在一起</td></tr><tr><td class="opt-text">走向窗户。</td><td class="opt-val zero">无影响</td><td class="opt-res">你拒绝了他</td></tr><tr><td class="opt-text">待着不动。</td><td class="opt-val zero">无影响</td><td class="opt-res">他钻进被窝吻了你</td></tr></tbody></table><div class="ev-note">💡 想走恋爱线就选「靠近他」或「待着不动」。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：上午 6:10–17:00 进入至少升级两次的农舍（他在里面），之后每隔三天触发下一段</span></div><p class="ev-story">他觉得自己婚后变懒了想找点事做，收到《快乐祝尼魔秀》配乐的工作邀约，虽然不太符合预期但开始认真考虑。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">就当是职业生涯的跳板吧……</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">想想你会让多少孩子开心！</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">我很抱歉……</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">这对你来说应该很简单吧……</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">你可以找你弟弟帮忙啊！</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 婚后事件，无好感影响。</div></div></div></div>
+    </article>
+    <article id="npc-alex" class="npc-card" data-name="亚历克斯" data-en="Alex" data-search="亚历克斯 alex 河间大道 1 号 夏天去沙滩或冰淇淋摊一找一个准；鲑鱼晚餐食谱在格斯酒吧有售，生日夏季 13。 完美早餐 鲑鱼晚餐 钢墙铁壁（健身书 jack be nimble, jack be thick，+1 防御） 工作小食 恐龙蛋 鹦鹉蛋 所有蛋类（除虚空蛋） 所有牛奶 2 心 夏季晴天、他在海滩时前往海滩（约 8:50–12:00） 他在练格球，把球抛给你没接住，然后说他要成为星露谷第一个职业格球选手，问你怎么看。 「我相信你！」 「哇，你还真自大。」 4 心 9:00–16:00 进入小镇 他在自家旁边狗窝前和狗狗 dusty 说话，倾诉自己被误解的心情，被你从酒吧后头撞见。 「嗯，我全听到了。」 「没听到……怎么了？」 5 心 亚历克斯在家时进入他的家 他盯着书柜感叹自己一本都没读过，担心没文化就没出息，觉得自己很没用。 「才不是，你明明是个天才！」 「我们都有自己的长处和短处。」 「没用？对，总结得很精辟。」 6 心 亚历克斯在家时进入他的家 他怀疑自己打不上职业，为之前的粗鲁态度向你道歉，并感激你一直没放弃他。 8 心 夏季晴天、他在海滩时前往海滩 他坐在海滩上哭，这天是他母亲去世 12 周年，他遗憾没能感谢母亲的养育，唯一留下的遗物是母亲的音乐盒。 「活出精彩人生，以报答你母亲的养育之恩。」 「你不该一直沉浸在过去。」 「要是你寂寞了，我永远陪着你。」 「咬咬牙撑过去，人生对谁都不容易。」 10 心 收到他的信后 19:00–22:00 进入星之果实餐吧 他包下餐吧的私间和你共进晚餐，格斯拉小提琴、艾米丽上菜，随后表白。 「我也是这种感觉。」 「抱歉……我没那种感觉。」 14 心（婚后） 第 2 年起、身上有 5,000 金、非周日的 6:00–8:20 离开农舍；之后周日进餐吧看第二部分 他找你要 5,000 金搞「秘密项目」，周日餐吧后间被他布置成格球主题房，和肯特、谢恩、乔治、格斯一起看球。" data-tags="marry marry-male male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-alex" aria-expanded="false">亚历克斯 <span class="en">Alex</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 13 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 7 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 河间大道 1 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">完美早餐</li>
+<li class="chip-love">鲑鱼晚餐</li>
+<li class="chip-love">钢墙铁壁（健身书 Jack Be Nimble, Jack Be Thick，+1 防御）</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">工作小食</li>
+<li class="chip-like">恐龙蛋</li>
+<li class="chip-like">鹦鹉蛋</li>
+<li class="chip-like">所有蛋类（除虚空蛋）</li>
+<li class="chip-like">所有牛奶</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">6:00–18:30 在家或家附近 → 18:30–22:00 家</td></tr>
+<tr><td class="sched-cond">春 / 秋季日常</td><td class="sched-detail">6:00–16:00 家或家附近（狗窝旁练球）→ 16:00–18:30 狗窝旁 → 18:30–20:00 家附近 → 20:00 后回家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–7:50 家 → 7:50–12:00 沙滩 → 12:00–17:00 冰淇淋摊打工 → 17:00–22:00 家 / 家附近</td></tr>
+<tr><td class="sched-cond">冬季日常</td><td class="sched-detail">6:00–9:00 家 → 9:00–15:00 温泉 → 15:00–21:00 家或家附近 → 21:00–22:40 家</td></tr>
+<tr><td class="sched-cond">周三（与海莉友谊低于 6 心）</td><td class="sched-detail">12:00–16:30 去海莉家，之后照常</td></tr>
+<tr><td class="sched-cond">周日（14 心事件后）</td><td class="sched-detail">11:00–15:00 酒吧</td></tr>
+<tr><td class="sched-cond">夏季 16 日 / 冬季 17 日</td><td class="sched-detail">分别去哈维诊所体检（10:30–16:00）/ 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 夏天去沙滩或冰淇淋摊一找一个准；鲑鱼晚餐食谱在格斯酒吧有售，生日夏季 13。</div>
+      <div class="ev-panel" id="ev-alex"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 7 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：夏季晴天、他在海滩时前往海滩（约 8:50–12:00）</span></div><p class="ev-story">他在练格球，把球抛给你没接住，然后说他要成为星露谷第一个职业格球选手，问你怎么看。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「我相信你！」</td><td class="opt-val zero">无影响</td><td class="opt-res">他道谢并说会记住这句话</td></tr><tr><td class="opt-text">「哇，你还真自大。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他说你只是嫉妒，然后走了</td></tr></tbody></table><div class="ev-note">💡 不影响好感，但第一印象剧情建议选鼓励。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：9:00–16:00 进入小镇</span></div><p class="ev-story">他在自家旁边狗窝前和狗狗 Dusty 说话，倾诉自己被误解的心情，被你从酒吧后头撞见。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「嗯，我全听到了。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他会讲起自己为何跟祖父母住</td></tr><tr><td class="opt-text">「没听到……怎么了？」</td><td class="opt-val zero">无影响</td><td class="opt-res">同上，剧情照常推进</td></tr></tbody></table><div class="ev-note">💡 无好感影响，是他身世线的重要一段。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">5 心</span><span class="ev-trig">🎬 触发：亚历克斯在家时进入他的家</span></div><p class="ev-story">他盯着书柜感叹自己一本都没读过，担心没文化就没出息，觉得自己很没用。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「才不是，你明明是个天才！」</td><td class="opt-val zero">无影响</td><td class="opt-res">他略带怀疑地接受</td></tr><tr><td class="opt-text">「我们都有自己的长处和短处。」</td><td class="opt-val up">+50</td><td class="opt-res">最优选项</td></tr><tr><td class="opt-text">「没用？对，总结得很精辟。」</td><td class="opt-val down">-50</td><td class="opt-res">明显扣分</td></tr></tbody></table><div class="ev-note">💡 本段唯一影响好感的一组：选第二项 +50。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：亚历克斯在家时进入他的家</span></div><p class="ev-story">他怀疑自己打不上职业，为之前的粗鲁态度向你道歉，并感激你一直没放弃他。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项，纯鼓励剧情。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：夏季晴天、他在海滩时前往海滩</span></div><p class="ev-story">他坐在海滩上哭，这天是他母亲去世 12 周年，他遗憾没能感谢母亲的养育，唯一留下的遗物是母亲的音乐盒。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「活出精彩人生，以报答你母亲的养育之恩。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他说这正是他拼命练球的原因</td></tr><tr><td class="opt-text">「你不该一直沉浸在过去。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他会不高兴</td></tr><tr><td class="opt-text">「要是你寂寞了，我永远陪着你。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他害羞地说你是他在镇上最好的朋友</td></tr><tr><td class="opt-text">「咬咬牙撑过去，人生对谁都不容易。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他会回呛你</td></tr></tbody></table><div class="ev-note">💡 全 0 影响，但剧情极关键；建议选陪伴向选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：收到他的信后 19:00–22:00 进入星之果实餐吧</span></div><p class="ev-story">他包下餐吧的私间和你共进晚餐，格斯拉小提琴、艾米丽上菜，随后表白。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「我也是这种感觉。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他欣喜若狂，正式在一起</td></tr><tr><td class="opt-text">「抱歉……我没那种感觉。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他很失落，食欲全无</td></tr></tbody></table><div class="ev-note">💡 要走结婚线选第一项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：第 2 年起、身上有 5,000 金、非周日的 6:00–8:20 离开农舍；之后周日进餐吧看第二部分</span></div><p class="ev-story">他找你要 5,000 金搞「秘密项目」，周日餐吧后间被他布置成格球主题房，和肯特、谢恩、乔治、格斯一起看球。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 婚后事件，给钱即可推进。</div></div></div></div>
+    </article>
+    <article id="npc-harvey" class="npc-card" data-name="哈维" data-en="Harvey" data-search="哈维 harvey 哈维的诊所（兼住所） 每天 8:30–12:00 基本在诊所，是全游戏最好找的 npc 之一；松露油需要养猪 + 油瓶，腌菜秋季种黄瓜即可自制。 咖啡 巨无霸餐 腌菜 果酒 松露油 黄水仙 蒲公英 普通蘑菇 鸡油菌 鸭蛋 韭葱 姜 羊奶 冬青树 所有水果（除美洲大树莓、香味浆果） 所有鸡蛋（除鸭蛋、虚空蛋） 所有牛奶 2 心 乔治在家时进入乔治家 哈维上门给乔治做私人检查，劝他改生活习惯，乔治很抵触，两人僵持不下。 「乔治应该听哈维医生的话。」 「乔治最了解自己的身体。」 4 心 哈维在诊所时进入诊所 他正准备写信通知你做年度体检，检查时发现你脉搏偏快，问你怎么回事。 「我有点紧张……」 「我刚干完农活，喘的。」 「你真的是医生吗？我脉搏很正常！」 6 心 11:00–15:00 进入皮埃尔的杂货店 你撞见他和镇上的女士们一起跳有氧舞蹈，他气喘吁吁又极度尴尬，求你别说出去。 「我不会说出去的」 「这我可不能保证。」 8 心 进入哈维的诊所 他在房间里用设备尝试联络飞行员，居然真的收到回应，激动到脉搏飙升。 10 心 收到他的信后 9:00–17:00 前往火车站 他在报纸上看到热气球租赁广告，特地约你一起升空，两人共度两个小时的空中之旅。 14 心（婚后） 20:00–24:00 进入至少升级两次的农舍 他在家做蛤蜊天使面，问你味道如何、今天过得怎么样，最后主动包下洗碗。" data-tags="marry marry-male male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-harvey" aria-expanded="false">哈维 <span class="en">Harvey</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 14 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 哈维的诊所（兼住所）</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">咖啡</li>
+<li class="chip-love">巨无霸餐</li>
+<li class="chip-love">腌菜</li>
+<li class="chip-love">果酒</li>
+<li class="chip-love">松露油</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">蒲公英</li>
+<li class="chip-like">普通蘑菇</li>
+<li class="chip-like">鸡油菌</li>
+<li class="chip-like">鸭蛋</li>
+<li class="chip-like">韭葱</li>
+<li class="chip-like">姜</li>
+<li class="chip-like">羊奶</li>
+<li class="chip-like">冬青树</li>
+<li class="chip-like">所有水果（除美洲大树莓、香味浆果）</li>
+<li class="chip-like">所有鸡蛋（除鸭蛋、虚空蛋）</li>
+<li class="chip-like">所有牛奶</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">周二 / 周四</td><td class="sched-detail">6:00–18:00 诊所 → 18:00–23:00 房间</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–8:30 房间 → 8:30–12:00 诊所 → 12:00–15:00 皮埃尔杂货店 → 15:00–22:00 家</td></tr>
+<tr><td class="sched-cond">周六</td><td class="sched-detail">6:00–8:30 房间 → 8:30–15:00 博物馆 → 15:00 家</td></tr>
+<tr><td class="sched-cond">春 / 冬季日常</td><td class="sched-detail">6:00–8:30 房间 → 8:30–12:00 诊所 → 12:00–17:30 小镇广场左边 → 17:30–22:00 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">12:00–17:30 去秘密森林散步</td></tr>
+<tr><td class="sched-cond">秋季日常</td><td class="sched-detail">12:00–17:30 去下水道 / 大树旁散步 → 17:00 家</td></tr>
+<tr><td class="sched-cond">雨天</td><td class="sched-detail">6:00–12:00 诊所 → 12:00–17:30 房间 → 17:30–22:00 酒吧 → 22:00 睡</td></tr>
+<tr><td class="sched-cond">冬季 15 日</td><td class="sched-detail">夜市；冬季日常傍晚去酒吧</td></tr></table>
+      </div>
+      <div class="tip">💡 每天 8:30–12:00 基本在诊所，是全游戏最好找的 NPC 之一；松露油需要养猪 + 油瓶，腌菜秋季种黄瓜即可自制。</div>
+      <div class="ev-panel" id="ev-harvey"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：乔治在家时进入乔治家</span></div><p class="ev-story">哈维上门给乔治做私人检查，劝他改生活习惯，乔治很抵触，两人僵持不下。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「乔治应该听哈维医生的话。」</td><td class="opt-val up">+40</td><td class="opt-res">乔治终于让步，哈维向你道谢</td></tr><tr><td class="opt-text">「乔治最了解自己的身体。」</td><td class="opt-val down">-40</td><td class="opt-res">哈维说别给病人传递混乱信息</td></tr></tbody></table><div class="ev-note">💡 选支持医生 +40。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：哈维在诊所时进入诊所</span></div><p class="ev-story">他正准备写信通知你做年度体检，检查时发现你脉搏偏快，问你怎么回事。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「我有点紧张……」</td><td class="opt-val up">+20</td><td class="opt-res">他以为你怕医院，安慰你放轻松</td></tr><tr><td class="opt-text">「我刚干完农活，喘的。」</td><td class="opt-val up">+20</td><td class="opt-res">他接受这个解释</td></tr><tr><td class="opt-text">「你真的是医生吗？我脉搏很正常！」</td><td class="opt-val down">-50</td><td class="opt-res">明显扣分</td></tr></tbody></table><div class="ev-note">💡 前两项各 +20。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：11:00–15:00 进入皮埃尔的杂货店</span></div><p class="ev-story">你撞见他和镇上的女士们一起跳有氧舞蹈，他气喘吁吁又极度尴尬，求你别说出去。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「我不会说出去的」</td><td class="opt-val up">+20</td><td class="opt-res">他松口气并感谢你</td></tr><tr><td class="opt-text">「这我可不能保证。」</td><td class="opt-val down">-50</td><td class="opt-res">他叹气说你「真过分」</td></tr></tbody></table><div class="ev-note">💡 答应保密 +20，调侃 -50。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：进入哈维的诊所</span></div><p class="ev-story">他在房间里用设备尝试联络飞行员，居然真的收到回应，激动到脉搏飙升。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无好感选项，是他个人爱好线的重要一段。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：收到他的信后 9:00–17:00 前往火车站</span></div><p class="ev-story">他在报纸上看到热气球租赁广告，特地约你一起升空，两人共度两个小时的空中之旅。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 看完即可准备求婚。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：20:00–24:00 进入至少升级两次的农舍</span></div><p class="ev-story">他在家做蛤蜊天使面，问你味道如何、今天过得怎么样，最后主动包下洗碗。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 婚后日常，无好感影响。</div></div></div></div>
+    </article>
+    <article id="npc-shane" class="npc-card" data-name="谢恩" data-en="Shane" data-search="谢恩 shane 玛妮的牧场 社区中心修复前白天在 joja 超市、修复后基本泡酒吧；啤酒可秋季种啤酒花放小桶自酿，辣椒夏季种植。 啤酒 辣椒 爆炒青椒 披萨 所有普遍喜欢的礼物（除腌菜） 所有鸡蛋（除虚空蛋） 所有水果（除辣椒） 2 心 20:00–24:00 进入煤矿森林 他坐在池塘木栈道上和你分喝啤酒，坦白自己的抑郁，也劝你别像他一样酗酒。 3 心 好感达到 3 心后自动触发 他会寄来一份食谱，日常对话也变得更有礼貌。 4 心 任意时间进入玛妮的牧场 他醉倒在房间里、四周全是空啤酒罐；玛妮让你想办法，你用洒水壶浇醒了他。玛妮问他未来打算，他说「希望自己活不到需要计划的那天」，被贾斯听见哭着跑开。 6 心 雨天或暴雨的 9:00–20:00 进入煤矿森林 他趴在悬崖边、身边又是空酒罐，问你他为什么不干脆滚下去。你把他送医后，哈维更担心他的心理状况。 「因为世上还有那么多值得活着的事！」 「贾斯需要你，你就像她父亲。」 「那样是罪过。」 「决定权在你，我只想让你知道我在。」 「我很高兴当时帮上了忙。」 「你需要一次狠狠的当头棒喝。」 「我只是很高兴你还活着。」 7 心 i 看过 6 心事件后，谢恩在家时进入玛妮的牧场 他告诉玛妮自己最近心情好多了，改喝气泡水，也意识到依赖别人并不丢人。 7 心 ii 晴天 10:00–16:00 进入小镇（需与艾米丽、克林特各 2 心） 他在拍一段 joja 可乐广告参赛，让艾米丽和克林特出演，拉你在镜头后面走位增加真实感。 8 心 谢恩在家时进入玛妮的牧场（需先看完 6 心事件的后续探访） 贾斯带你穿过平时上锁的厨房门，他在里面给蓝鸡群画「新鲜鸡蛋」的牌子，还抱着最爱的白鸡 charlie 说话。 10 心 6:30 之前出门触发信件，随后 16:00–18:00 步行前往巴士站 他邀你去祖祖城看隧道工人队的格球比赛，在球场看台上感谢你陪他走过抑郁与焦虑的那段日子。 「很吵……让我更想念家乡的安静。」 「很有意思……相比之下星露谷真无聊。」 14 心（婚后） 非周五的 8:00–17:00 进入小镇；接下来两天各进一次小镇触发第二、三段 玛妮担心他又开始酗酒，让你在他出酒吧时劝劝他；第二天他生气跑回家，第三天事件收尾。" data-tags="marry marry-male male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-shane" aria-expanded="false">谢恩 <span class="en">Shane</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 20 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 9 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 玛妮的牧场</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">啤酒</li>
+<li class="chip-love">辣椒</li>
+<li class="chip-love">爆炒青椒</li>
+<li class="chip-love">披萨</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">所有普遍喜欢的礼物（除腌菜）</li>
+<li class="chip-like">所有鸡蛋（除虚空蛋）</li>
+<li class="chip-like">所有水果（除辣椒）</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">周一至五（社区中心未修复）</td><td class="sched-detail">6:00–7:10 家 → 7:10–17:00 Joja 超市上班 → 17:00–23:10 酒吧 → 23:10 家</td></tr>
+<tr><td class="sched-cond">周一至五（社区中心已修复）</td><td class="sched-detail">6:00–14:00 家 → 14:00–23:00 酒吧 → 23:00 家</td></tr>
+<tr><td class="sched-cond">周六</td><td class="sched-detail">6:00–12:00 家 → 12:00–17:00 皮埃尔杂货店 → 17:00–23:00 酒吧 → 23:00 家</td></tr>
+<tr><td class="sched-cond">周日</td><td class="sched-detail">6:00–18:00 家 → 18:00–0:00 酒吧 → 0:00 家</td></tr>
+<tr><td class="sched-cond">冬季 15 日</td><td class="sched-detail">6:00–15:00 家 → 15:00–23:00 夜市 → 23:00 家</td></tr></table>
+      </div>
+      <div class="tip">💡 社区中心修复前白天在 Joja 超市、修复后基本泡酒吧；啤酒可秋季种啤酒花放小桶自酿，辣椒夏季种植。</div>
+      <div class="ev-panel" id="ev-shane"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 9 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：20:00–24:00 进入煤矿森林</span></div><p class="ev-story">他坐在池塘木栈道上和你分喝啤酒，坦白自己的抑郁，也劝你别像他一样酗酒。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 喝下的啤酒会回体力并附带「微醺」buff；纯剧情。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他会寄来一份食谱，日常对话也变得更有礼貌。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件，无需跑图。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：任意时间进入玛妮的牧场</span></div><p class="ev-story">他醉倒在房间里、四周全是空啤酒罐；玛妮让你想办法，你用洒水壶浇醒了他。玛妮问他未来打算，他说「希望自己活不到需要计划的那天」，被贾斯听见哭着跑开。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 全游戏最沉重的剧情之一，无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：雨天或暴雨的 9:00–20:00 进入煤矿森林</span></div><p class="ev-story">他趴在悬崖边、身边又是空酒罐，问你他为什么不干脆滚下去。你把他送医后，哈维更担心他的心理状况。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「因为世上还有那么多值得活着的事！」</td><td class="opt-val zero">无影响</td><td class="opt-res">他说「也许对你而言是吧」</td></tr><tr><td class="opt-text">「贾斯需要你，你就像她父亲。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他崩溃自责，触动最大</td></tr><tr><td class="opt-text">「那样是罪过。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他说自己是无神论者</td></tr><tr><td class="opt-text">「决定权在你，我只想让你知道我在。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他低声道谢</td></tr><tr><td class="opt-text">「我很高兴当时帮上了忙。」</td><td class="opt-val up">+10</td><td class="opt-res">随后送医后的对话</td></tr><tr><td class="opt-text">「你需要一次狠狠的当头棒喝。」</td><td class="opt-val down">-10</td><td class="opt-res">送医后的对话，扣分</td></tr><tr><td class="opt-text">「我只是很高兴你还活着。」</td><td class="opt-val up">+10</td><td class="opt-res">送医后的对话</td></tr></tbody></table><div class="ev-note">💡 前四个选项不影响好感，送医后的三个里有 +10 / -10。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心 I</span><span class="ev-trig">🎬 触发：看过 6 心事件后，谢恩在家时进入玛妮的牧场</span></div><p class="ev-story">他告诉玛妮自己最近心情好多了，改喝气泡水，也意识到依赖别人并不丢人。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 好感线的重要转折点。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心 II</span><span class="ev-trig">🎬 触发：晴天 10:00–16:00 进入小镇（需与艾米丽、克林特各 2 心）</span></div><p class="ev-story">他在拍一段 Joja 可乐广告参赛，让艾米丽和克林特出演，拉你在镜头后面走位增加真实感。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 1.6 之前这原本是他的 6 心事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：谢恩在家时进入玛妮的牧场（需先看完 6 心事件的后续探访）</span></div><p class="ev-story">贾斯带你穿过平时上锁的厨房门，他在里面给蓝鸡群画「新鲜鸡蛋」的牌子，还抱着最爱的白鸡 Charlie 说话。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 谢恩线的暖心收尾。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：6:30 之前出门触发信件，随后 16:00–18:00 步行前往巴士站</span></div><p class="ev-story">他邀你去祖祖城看隧道工人队的格球比赛，在球场看台上感谢你陪他走过抑郁与焦虑的那段日子。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「很吵……让我更想念家乡的安静。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他说你们正好互补</td></tr><tr><td class="opt-text">「很有意思……相比之下星露谷真无聊。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他有些意外但表示理解</td></tr></tbody></table><div class="ev-note">💡 不影响好感。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：非周五的 8:00–17:00 进入小镇；接下来两天各进一次小镇触发第二、三段</span></div><p class="ev-story">玛妮担心他又开始酗酒，让你在他出酒吧时劝劝他；第二天他生气跑回家，第三天事件收尾。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 婚后事件，涉及他复饮的危机线。</div></div></div></div>
+    </article>
+    <article id="npc-elliott" class="npc-card" data-name="艾利欧特" data-en="Elliott" data-search="艾利欧特 elliott 艾利欧特小屋（海滩边） 住海边小屋的作家，雨天必然在家；龙虾用蟹笼稳拿，石榴来自秋季果树，椰汁汤食谱需椰子+虾+普通蘑菇。 蟹黄糕 鸭毛 龙虾 石榴 椰汁汤 鱿鱼墨汁 章鱼 鱿鱼 所有水果（除石榴、美洲大树莓） 所有的书 所有鸡蛋（除虚空蛋） 2 心 他在小屋时进入艾利欧特小屋 他讲自己来星露谷是为了当作家、家乡没人看好他，然后问你喜欢什么类型的小说。 悬疑 爱情 科幻 4 心 15:00–22:00 进入星之果实餐吧（格斯在场） 他写作八小时后到酒吧放松，给你点了一杯酒，你举杯提议干杯。 「敬星露谷！」 「敬我们的友谊！」 「敬我身体健康！」 「敬你的末日！」 6 心 他在家时进入艾利欧特小屋 他弹完一首钢琴曲，谈起小说迟迟写不完，说有时真想干脆扔掉一切去当农民。 「太好听了」 「你弹了多久了？」 「当农民一样不轻松啊」 「来农场住吧，我正好缺人手」 8 心 收到他的信后 13:00–19:00 进入博物馆（不必当天） 镇上很多人来听他朗读完成的小说，读到的内容取决于你 2 心时选的类型。 10 心 非雨天的 7:00–13:00 前往海滩（会收到信，但信不是必需的） 他修好了码头边的小船，邀你一起「处女航」，航行途中坦白心意并吻了你。 我很开心 你让我很不舒服，停下。 14 心（婚后） 未来 8 天没有节日时，6:00–15:00 离开农舍或进入农场（他在农场） 他在门廊等你，随后外出巡回签售一整周，每天寄信回来；第二天冰箱里会出现一份蟹黄糕，第 8 天他回来收尾。" data-tags="marry marry-male male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-elliott" aria-expanded="false">艾利欧特 <span class="en">Elliott</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 5 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 艾利欧特小屋（海滩边）</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">蟹黄糕</li>
+<li class="chip-love">鸭毛</li>
+<li class="chip-love">龙虾</li>
+<li class="chip-love">石榴</li>
+<li class="chip-love">椰汁汤</li>
+<li class="chip-love">鱿鱼墨汁</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">章鱼</li>
+<li class="chip-like">鱿鱼</li>
+<li class="chip-like">所有水果（除石榴、美洲大树莓）</li>
+<li class="chip-like">所有的书</li>
+<li class="chip-like">所有鸡蛋（除虚空蛋）</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周四 / 周五（6 心后）</td><td class="sched-detail">6:00–11:30 家 → 11:30–17:30 皮埃尔商店 → 17:30 家</td></tr>
+<tr><td class="sched-cond">周五 / 周日（与莉亚友谊低于 6 心）</td><td class="sched-detail">6:00–11:00 家 → 11:00–17:00 鱼店附近 → 17:00–23:40 酒吧 → 23:40 家</td></tr>
+<tr><td class="sched-cond">周五 / 春季日常</td><td class="sched-detail">6:00–12:00 家 → 12:00–13:30 沙滩 → 13:30–15:00 家 → 15:00–18:00 海滩入口桥上 → 18:00 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–11:30 家 → 11:30–18:00 煤矿森林 → 18:00–19:40 家</td></tr>
+<tr><td class="sched-cond">秋 / 冬季日常</td><td class="sched-detail">6:00–11:30 家 → 11:30–17:30 博物馆 → 17:30–21:00 家</td></tr>
+<tr><td class="sched-cond">夏季 9 日 / 冬季 17 日</td><td class="sched-detail">分别去哈维诊所体检（10:30–16:00）/ 夜市（至凌晨 1 点）</td></tr>
+<tr><td class="sched-cond">冬季 12 / 13 日</td><td class="sched-detail">6:00–8:00 家 → 8:00–17:00 鱼店附近 → 17:00–0:00 酒吧</td></tr></table>
+      </div>
+      <div class="tip">💡 住海边小屋的作家，雨天必然在家；龙虾用蟹笼稳拿，石榴来自秋季果树，椰汁汤食谱需椰子+虾+普通蘑菇。</div>
+      <div class="ev-panel" id="ev-elliott"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：他在小屋时进入艾利欧特小屋</span></div><p class="ev-story">他讲自己来星露谷是为了当作家、家乡没人看好他，然后问你喜欢什么类型的小说。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">悬疑</td><td class="opt-val up">+30</td><td class="opt-res">他记住你的选择</td></tr><tr><td class="opt-text">爱情</td><td class="opt-val up">+30</td><td class="opt-res">同上</td></tr><tr><td class="opt-text">科幻</td><td class="opt-val up">+30</td><td class="opt-res">同上</td></tr></tbody></table><div class="ev-note">💡 三项都 +30，但选项会决定 8 心朗读会上读到的小说内容。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：15:00–22:00 进入星之果实餐吧（格斯在场）</span></div><p class="ev-story">他写作八小时后到酒吧放松，给你点了一杯酒，你举杯提议干杯。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「敬星露谷！」</td><td class="opt-val up">+25</td><td class="opt-res">他说这是对社区的美好祝愿</td></tr><tr><td class="opt-text">「敬我们的友谊！」</td><td class="opt-val up">+50</td><td class="opt-res">最优选项</td></tr><tr><td class="opt-text">「敬我身体健康！」</td><td class="opt-val down">-10</td><td class="opt-res">他有点无语</td></tr><tr><td class="opt-text">「敬你的末日！」</td><td class="opt-val down">-50</td><td class="opt-res">他直接不喝了</td></tr></tbody></table><div class="ev-note">💡 最高 +50，最低 -50，是全游戏差距较大的一组。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：他在家时进入艾利欧特小屋</span></div><p class="ev-story">他弹完一首钢琴曲，谈起小说迟迟写不完，说有时真想干脆扔掉一切去当农民。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「太好听了」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「你弹了多久了？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「当农民一样不轻松啊」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「来农场住吧，我正好缺人手」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 全部不影响好感。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：收到他的信后 13:00–19:00 进入博物馆（不必当天）</span></div><p class="ev-story">镇上很多人来听他朗读完成的小说，读到的内容取决于你 2 心时选的类型。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 他的作家线高潮。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：非雨天的 7:00–13:00 前往海滩（会收到信，但信不是必需的）</span></div><p class="ev-story">他修好了码头边的小船，邀你一起「处女航」，航行途中坦白心意并吻了你。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">我很开心</td><td class="opt-val up">+50</td><td class="opt-res">顺利在一起</td></tr><tr><td class="opt-text">你让我很不舒服，停下。</td><td class="opt-val down">-50</td><td class="opt-res">直接拒绝</td></tr></tbody></table><div class="ev-note">💡 ±50，走结婚线选第一项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：未来 8 天没有节日时，6:00–15:00 离开农舍或进入农场（他在农场）</span></div><p class="ev-story">他在门廊等你，随后外出巡回签售一整周，每天寄信回来；第二天冰箱里会出现一份蟹黄糕，第 8 天他回来收尾。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 婚后事件；若 8 天内有节日会顺延。</div></div></div></div>
+    </article>
+    <article id="npc-haley" class="npc-card" data-name="海莉" data-en="Haley" data-search="海莉 haley 柳巷 2 号 注意：她讨厌五彩碎片，别拿通用最爱踩雷；向日葵夏季 / 秋季种植，椰子在沙漠捡，粉红蛋糕 = 甜瓜+面粉+糖+蛋。 椰子 水果沙拉 粉红蛋糕 向日葵 黄水仙 所有普遍喜欢的礼物（除蔬菜） 2 心 海莉和艾米丽都在家时进入柳巷 2 号 姐妹俩为「谁清理沙发垫底下」吵起来，由你来裁决。 「别抱怨了，直接去打扫！」 「海莉，不如这当你的每周固定任务？」 「艾米丽，你大度一点，这次你来。」 4 心 海莉在家时进入她家 她拧不开罐子，问你是不是力气很大。 「是的。」 「不是。」 6 心 非冬季的 10:00–16:00 前往海滩 她在海边为弄丢手镯难过——那是曾祖母传下来的；手镯就在艾利欧特小屋右侧的灌木丛后面。 「别紧张，我给你买个新的！」 「我真的很抱歉……」 8 心 非冬季的晴天 10:00–16:00 进入煤矿森林 她在玛妮牧场拍照，拉你一起入镜，还爬到奶牛身上结果摔了一身泥，笑着回去洗澡；第二天会收到她的信。 10 心 海莉在家时进入她家 她带你参观自己冲洗照片的暗房，然后问你接下来想做什么。 「看起来很棒！」 「这是干什么用的？」 「我见过更好的。」 主动帮忙装饰暗房 找借口开溜 试着吻她 14 心（婚后） 第一段：非雨天 8:00–15:00 进小镇；第二段：至少一天后 6:20–17:00 进农舍；第三段：再过至少一天，带着巧克力蛋糕在非雨天 6:00–15:00 进小镇 她听到贾斯、文森特抱怨课本破旧、潘妮说新书太贵，于是想为镇上的孩子们做点事。 好啊 好吧（不情愿地）" data-tags="marry marry-female female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-haley" aria-expanded="false">海莉 <span class="en">Haley</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 14 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 柳巷 2 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">椰子</li>
+<li class="chip-love">水果沙拉</li>
+<li class="chip-love">粉红蛋糕</li>
+<li class="chip-love">向日葵</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">所有普遍喜欢的礼物（除蔬菜）</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">春 / 秋季周一</td><td class="sched-detail">6:00–11:00 家 → 11:00–16:30 煤矿森林 → 16:30–23:00 家</td></tr>
+<tr><td class="sched-cond">周二（与亚历克斯友谊均低于 6 心）</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周三（与海莉、亚历克斯友谊达 6 心）</td><td class="sched-detail">6:00–11:00 家 → 11:00–16:30 喷泉 → 16:30–22:30 家</td></tr>
+<tr><td class="sched-cond">春 / 秋 / 冬日常</td><td class="sched-detail">6:00–11:00 家 → 11:00–16:30 喷泉 → 16:30–22:30 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–10:30 家 → 10:30–13:30 沙滩 → 13:30–17:00 冰淇淋摊 → 17:00–23:00 家</td></tr>
+<tr><td class="sched-cond">冬季 9 日 / 冬季 16 日</td><td class="sched-detail">分别去哈维诊所体检（11:30–16:00）/ 夜市（至 0:00）</td></tr></table>
+      </div>
+      <div class="tip">💡 注意：她讨厌五彩碎片，别拿通用最爱踩雷；向日葵夏季 / 秋季种植，椰子在沙漠捡，粉红蛋糕 = 甜瓜+面粉+糖+蛋。</div>
+      <div class="ev-panel" id="ev-haley"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：海莉和艾米丽都在家时进入柳巷 2 号</span></div><p class="ev-story">姐妹俩为「谁清理沙发垫底下」吵起来，由你来裁决。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「别抱怨了，直接去打扫！」</td><td class="opt-val down">-50</td><td class="opt-res">她生气走开</td></tr><tr><td class="opt-text">「海莉，不如这当你的每周固定任务？」</td><td class="opt-val up">+30</td><td class="opt-res">最优选项，两人都接受</td></tr><tr><td class="opt-text">「艾米丽，你大度一点，这次你来。」</td><td class="opt-val down">-30</td><td class="opt-res">她觉得你在说她幼稚</td></tr></tbody></table><div class="ev-note">💡 选「分工」+30，指责各扣分。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：海莉在家时进入她家</span></div><p class="ev-story">她拧不开罐子，问你是不是力气很大。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「是的。」</td><td class="opt-val up">+30</td><td class="opt-res">她立刻让你帮忙开罐子</td></tr><tr><td class="opt-text">「不是。」</td><td class="opt-val down">-30</td><td class="opt-res">她还是勉强请你试试</td></tr></tbody></table><div class="ev-note">💡 干脆答应 +30。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：非冬季的 10:00–16:00 前往海滩</span></div><p class="ev-story">她在海边为弄丢手镯难过——那是曾祖母传下来的；手镯就在艾利欧特小屋右侧的灌木丛后面。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「别紧张，我给你买个新的！」</td><td class="opt-val down">-30</td><td class="opt-res">她生气说这买不来</td></tr><tr><td class="opt-text">「我真的很抱歉……」</td><td class="opt-val up">+50</td><td class="opt-res">最优选项</td></tr></tbody></table><div class="ev-note">💡 找到手镯还给她会解锁拥抱剧情。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：非冬季的晴天 10:00–16:00 进入煤矿森林</span></div><p class="ev-story">她在玛妮牧场拍照，拉你一起入镜，还爬到奶牛身上结果摔了一身泥，笑着回去洗澡；第二天会收到她的信。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：海莉在家时进入她家</span></div><p class="ev-story">她带你参观自己冲洗照片的暗房，然后问你接下来想做什么。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「看起来很棒！」</td><td class="opt-val up">+10</td><td class="opt-res">她很高兴</td></tr><tr><td class="opt-text">「这是干什么用的？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我见过更好的。」</td><td class="opt-val down">-50</td><td class="opt-res">明显扣分</td></tr><tr><td class="opt-text">主动帮忙装饰暗房</td><td class="opt-val zero">无影响</td><td class="opt-res">她会有点失望</td></tr><tr><td class="opt-text">找借口开溜</td><td class="opt-val zero">无影响</td><td class="opt-res">她觉得你迟钝</td></tr><tr><td class="opt-text">试着吻她</td><td class="opt-val zero">无影响</td><td class="opt-res">最优结局：她等这一刻很久了，两人拥吻</td></tr></tbody></table><div class="ev-note">💡 想确认关系就选「试着吻她」。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：第一段：非雨天 8:00–15:00 进小镇；第二段：至少一天后 6:20–17:00 进农舍；第三段：再过至少一天，带着巧克力蛋糕在非雨天 6:00–15:00 进小镇</span></div><p class="ev-story">她听到贾斯、文森特抱怨课本破旧、潘妮说新书太贵，于是想为镇上的孩子们做点事。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">好啊</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">好吧（不情愿地）</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 婚后事件，记得提前备好巧克力蛋糕。</div></div></div></div>
+    </article>
+    <article id="npc-emily" class="npc-card" data-name="艾米丽" data-en="Emily" data-search="艾米丽 emily 柳巷 2 号 她是星之果实酒吧的服务员，每天 15:30 才上班、半夜 0:30 才下班，白天送礼最稳；布料由动物毛在缝纫机处制作。 紫水晶 海蓝宝石 翡翠 布料 绿宝石 红宝石 救生汉堡 黄水晶 动物毛 黄水仙 石英 随时 好感大于 0 即可能触发 她会不定期寄来小礼物，好感越高概率越大。 2 心 她在家时进入柳巷 2 号 她在房里睡觉，画面转到她的梦境：她漂浮在紫色石台上冥想念着「力量之语」，你从云里出现吓了她一跳，醒来后她认定你们命运相连。 3 心 好感达到 3 心后自动触发 她寄来一份沙拉食谱。 4 心 晴天进入小镇（冬季无法触发） 三只鹦鹉飞过她跟她打招呼，第四只撞上窗户受伤，她冲过去把小鸟捧起来说会照顾它。之后她房里就多了一只鹦鹉。 6 心 她在家时进入柳巷 2 号 她打开音响，为你表演准备了很久的秘密爱好——一段舞蹈，然后问你觉得怎么样。 「太精彩了！」 「有点尴尬……」 （什么也不说，慢慢鼓掌） 7 心 好感达到 7 心后自动触发 她寄来一份红盘食谱。 8 心 收到她的信后，在开放时间进入镇长庄园（需先看够 6 心事件；当天没赶上之后仍可触发） 她办了一场「服装疗法」活动，让刘易斯、阿比盖尔、谢恩、罗宾、克林特各自挑一套「诉说真我」的衣服上台展示。 10 心 收到信后，非雨天的 22:00 之后进入秘密森林（需要钢斧砍开大木头） 两人去秘密森林露营，林子里传来怪声，她挨着你取暖，一头熊走近营地，你们躲进帐篷，睡袋还留在外面。 14 心（婚后） 6:00–8:20 离开农舍 她出现在门口，让你帮她找 200 个纤维（任务名「妻子的差事」）；完成并等 3 天后，晚上 20:00–24:00 进农舍，她会送你一套魔法帽 / 魔法靴 / 魔法衫 / 精灵裤。" data-tags="marry marry-female female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-emily" aria-expanded="false">艾米丽 <span class="en">Emily</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 27 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 9 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 柳巷 2 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">紫水晶</li>
+<li class="chip-love">海蓝宝石</li>
+<li class="chip-love">翡翠</li>
+<li class="chip-love">布料</li>
+<li class="chip-love">绿宝石</li>
+<li class="chip-love">红宝石</li>
+<li class="chip-love">救生汉堡</li>
+<li class="chip-love">黄水晶</li>
+<li class="chip-love">动物毛</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">石英</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天和日常</td><td class="sched-detail">6:00–15:30 家 → 15:30–0:30 酒吧工作 → 0:30 家</td></tr>
+<tr><td class="sched-cond">周二</td><td class="sched-detail">6:00–10:00 家 → 10:00–16:00 皮埃尔杂货店 → 16:00–0:30 酒吧工作</td></tr>
+<tr><td class="sched-cond">周五（社区中心已修复）</td><td class="sched-detail">6:00–10:00 家 → 10:00–15:30 社区中心 → 15:30 酒吧工作</td></tr>
+<tr><td class="sched-cond">秋季 15 日（巴士已修复）</td><td class="sched-detail">6:00–10:30 家 → 10:30–0:00 沙漠 → 0:00 家</td></tr>
+<tr><td class="sched-cond">冬季 11 日 / 冬季 15 日</td><td class="sched-detail">分别去哈维诊所体检（10:30–16:00）/ 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 她是星之果实酒吧的服务员，每天 15:30 才上班、半夜 0:30 才下班，白天送礼最稳；布料由动物毛在缝纫机处制作。</div>
+      <div class="ev-panel" id="ev-emily"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 9 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">随时</span><span class="ev-trig">🎬 触发：好感大于 0 即可能触发</span></div><p class="ev-story">她会不定期寄来小礼物，好感越高概率越大。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 礼物为布料 / 海胆 / 动物毛之一。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：她在家时进入柳巷 2 号</span></div><p class="ev-story">她在房里睡觉，画面转到她的梦境：她漂浮在紫色石台上冥想念着「力量之语」，你从云里出现吓了她一跳，醒来后她认定你们命运相连。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">她寄来一份沙拉食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：晴天进入小镇（冬季无法触发）</span></div><p class="ev-story">三只鹦鹉飞过她跟她打招呼，第四只撞上窗户受伤，她冲过去把小鸟捧起来说会照顾它。之后她房里就多了一只鹦鹉。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 和她结婚的话鹦鹉会一起搬进农舍。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：她在家时进入柳巷 2 号</span></div><p class="ev-story">她打开音响，为你表演准备了很久的秘密爱好——一段舞蹈，然后问你觉得怎么样。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「太精彩了！」</td><td class="opt-val up">+25</td><td class="opt-res">她很开心</td></tr><tr><td class="opt-text">「有点尴尬……」</td><td class="opt-val down">-50</td><td class="opt-res">明显扣分</td></tr><tr><td class="opt-text">（什么也不说，慢慢鼓掌）</td><td class="opt-val up">+25</td><td class="opt-res">她同样很开心</td></tr></tbody></table><div class="ev-note">💡 别选「尴尬」，那是本段唯一的雷。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她寄来一份红盘食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：收到她的信后，在开放时间进入镇长庄园（需先看够 6 心事件；当天没赶上之后仍可触发）</span></div><p class="ev-story">她办了一场「服装疗法」活动，让刘易斯、阿比盖尔、谢恩、罗宾、克林特各自挑一套「诉说真我」的衣服上台展示。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 她的自我表达线高潮。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：收到信后，非雨天的 22:00 之后进入秘密森林（需要钢斧砍开大木头）</span></div><p class="ev-story">两人去秘密森林露营，林子里传来怪声，她挨着你取暖，一头熊走近营地，你们躲进帐篷，睡袋还留在外面。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 动画结束后当天直接结束，别把重要事安排在那天。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：6:00–8:20 离开农舍</span></div><p class="ev-story">她出现在门口，让你帮她找 200 个纤维（任务名「妻子的差事」）；完成并等 3 天后，晚上 20:00–24:00 进农舍，她会送你一套魔法帽 / 魔法靴 / 魔法衫 / 精灵裤。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 纤维需求量大，建议提前囤。</div></div></div></div>
+    </article>
+    <article id="npc-leah" class="npc-card" data-name="莉亚" data-en="Leah" data-search="莉亚 leah 煤渣森林的莉亚农舍 小屋开放时间：春 / 夏 / 秋需 2 心才能进屋，冬季无限制；松露靠养猪，果酒用小酒桶，沙拉 = 韭葱+蒲公英+醋。 山羊奶酪 松露 果酒 沙拉 蔬菜杂烩 蔬菜什锦盖饭 虞美人籽松糕 姜 榛子 韭葱 大葱 黄水仙 蒲公英 野山葵 冬根 普通蘑菇 所有鸡蛋（除虚空蛋） 所有水果 所有牛奶 2 心 她在家时进入煤渣森林的莉亚农舍 她一边雕刻一边说「剥开外层，本质才会显露」，然后问你的看法。 「人也是这样的。」 「我更喜欢未经雕琢的木头。」 （creepy）「可以亲我一下吗？」 「为什么不在镇上办个艺术展？」 「为什么不上网卖你的作品？」 4 心 她在家时进入她的农舍 她和前任在电话里争吵，对方要她回城里；挂断后她问你，自己为了当艺术家离开城市是不是很自私。 「不，那是必须的。」 「不，而且你前任听起来像个白痴。」 「不算，但你留在城里会更好。」 「嗯，有一点。」 「嗯，不过人先为自己着想很正常。」 6 心 i 非雨天的 6:00–11:30，她出现在你农舍门口 她把这段时间一直雕的那件作品送给你，取名《我对你的感觉》。 6 心 ii 非冬季、她在煤矿森林时进入煤矿森林 她够不到湖边大树上的果子，你把她扛在肩上摘到了，她说如果艺术这条路走不通，至少还有你接住她。 8 心 分支取决于 2 心的选择——艺术展：非冬季 6:00–8:00 她在农舍门口邀请你，当天 15:00–17:00 进小镇；艺术网站：她在家时进她的农舍 艺术展分支下，镇上很多人来参观，她坦言自己是为寻找灵感来到星露谷、如今真的把这里当家了。 10 心 非冬季的晴天 11:00–16:00 进入煤矿森林 她准备了野餐感谢你帮她离「真正的艺术家」更近一步，两人接吻时她的前任 kel 突然从灌木丛里冒出来。 14 心（婚后） 第一段：非周日、非冬季的晴天 6:00–8:20 离开农舍；第二段：之后任意一个晴天 11:30–14:00 进入森林 她约你一起给玛妮画像，问你觉得该用哪种风格。 古典乡村肖像 色彩鲜艳的复古波普 极简现代风" data-tags="marry marry-female female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-leah" aria-expanded="false">莉亚 <span class="en">Leah</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 23 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 7 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 煤渣森林的莉亚农舍</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">山羊奶酪</li>
+<li class="chip-love">松露</li>
+<li class="chip-love">果酒</li>
+<li class="chip-love">沙拉</li>
+<li class="chip-love">蔬菜杂烩</li>
+<li class="chip-love">蔬菜什锦盖饭</li>
+<li class="chip-love">虞美人籽松糕</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">姜</li>
+<li class="chip-like">榛子</li>
+<li class="chip-like">韭葱</li>
+<li class="chip-like">大葱</li>
+<li class="chip-like">黄水仙</li>
+<li class="chip-like">蒲公英</li>
+<li class="chip-like">野山葵</li>
+<li class="chip-like">冬根</li>
+<li class="chip-like">普通蘑菇</li>
+<li class="chip-like">所有鸡蛋（除虚空蛋）</li>
+<li class="chip-like">所有水果</li>
+<li class="chip-like">所有牛奶</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天 / 周五 / 周六</td><td class="sched-detail">6:00–16:00 家 → 16:00–23:40 酒吧 → 23:40 家</td></tr>
+<tr><td class="sched-cond">周一</td><td class="sched-detail">6:00–11:00 家 → 11:00–17:00 皮埃尔商店 → 17:00–0:00 家</td></tr>
+<tr><td class="sched-cond">春季日常</td><td class="sched-detail">6:00–12:00 家 → 12:00–19:30 煤矿森林画画 → 19:30–0:00 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–12:00 家 → 12:00–19:00 沙滩画画 → 19:00–0:00 家</td></tr>
+<tr><td class="sched-cond">秋季日常</td><td class="sched-detail">6:00–12:00 家 → 12:00–19:00 铁匠铺旁河流 → 19:00–0:00 家</td></tr>
+<tr><td class="sched-cond">冬季日常</td><td class="sched-detail">6:00–16:00 家 → 16:00–23:40 酒吧 → 23:40 家</td></tr>
+<tr><td class="sched-cond">春季 16 日 / 冬季 15 日</td><td class="sched-detail">分别去哈维诊所体检（10:30–16:00）/ 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 小屋开放时间：春 / 夏 / 秋需 2 心才能进屋，冬季无限制；松露靠养猪，果酒用小酒桶，沙拉 = 韭葱+蒲公英+醋。</div>
+      <div class="ev-panel" id="ev-leah"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 7 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：她在家时进入煤渣森林的莉亚农舍</span></div><p class="ev-story">她一边雕刻一边说「剥开外层，本质才会显露」，然后问你的看法。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「人也是这样的。」</td><td class="opt-val zero">无影响</td><td class="opt-res">她很认同</td></tr><tr><td class="opt-text">「我更喜欢未经雕琢的木头。」</td><td class="opt-val zero">无影响</td><td class="opt-res">她说原始自然同样很美</td></tr><tr><td class="opt-text">（creepy）「可以亲我一下吗？」</td><td class="opt-val down">-100</td><td class="opt-res">全游戏最著名的雷区之一</td></tr><tr><td class="opt-text">「为什么不在镇上办个艺术展？」</td><td class="opt-val zero">无影响</td><td class="opt-res">开启 8 心的『艺术展』分支</td></tr><tr><td class="opt-text">「为什么不上网卖你的作品？」</td><td class="opt-val zero">无影响</td><td class="opt-res">开启 8 心的『艺术网站』分支</td></tr></tbody></table><div class="ev-note">💡 除了「亲我一下」-100 之外都不影响好感；后两项决定 8 心事件的分支。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：她在家时进入她的农舍</span></div><p class="ev-story">她和前任在电话里争吵，对方要她回城里；挂断后她问你，自己为了当艺术家离开城市是不是很自私。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「不，那是必须的。」</td><td class="opt-val zero">无影响</td><td class="opt-res">她说回去也不会快乐</td></tr><tr><td class="opt-text">「不，而且你前任听起来像个白痴。」</td><td class="opt-val zero">无影响</td><td class="opt-res">她说有点刻薄但认同</td></tr><tr><td class="opt-text">「不算，但你留在城里会更好。」</td><td class="opt-val down">-20</td><td class="opt-res">扣分</td></tr><tr><td class="opt-text">「嗯，有一点。」</td><td class="opt-val down">-20</td><td class="opt-res">扣分</td></tr><tr><td class="opt-text">「嗯，不过人先为自己着想很正常。」</td><td class="opt-val down">-20</td><td class="opt-res">扣分</td></tr></tbody></table><div class="ev-note">💡 前两项安全，后三项各 -20。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心 I</span><span class="ev-trig">🎬 触发：非雨天的 6:00–11:30，她出现在你农舍门口</span></div><p class="ev-story">她把这段时间一直雕的那件作品送给你，取名《我对你的感觉》。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项，纯收礼。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心 II</span><span class="ev-trig">🎬 触发：非冬季、她在煤矿森林时进入煤矿森林</span></div><p class="ev-story">她够不到湖边大树上的果子，你把她扛在肩上摘到了，她说如果艺术这条路走不通，至少还有你接住她。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：分支取决于 2 心的选择——艺术展：非冬季 6:00–8:00 她在农舍门口邀请你，当天 15:00–17:00 进小镇；艺术网站：她在家时进她的农舍</span></div><p class="ev-story">艺术展分支下，镇上很多人来参观，她坦言自己是为寻找灵感来到星露谷、如今真的把这里当家了。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 两条分支互斥，想看全需要二周目。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：非冬季的晴天 11:00–16:00 进入煤矿森林</span></div><p class="ev-story">她准备了野餐感谢你帮她离「真正的艺术家」更近一步，两人接吻时她的前任 Kel 突然从灌木丛里冒出来。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无好感选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：第一段：非周日、非冬季的晴天 6:00–8:20 离开农舍；第二段：之后任意一个晴天 11:30–14:00 进入森林</span></div><p class="ev-story">她约你一起给玛妮画像，问你觉得该用哪种风格。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">古典乡村肖像</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">色彩鲜艳的复古波普</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">极简现代风</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 婚后事件，无好感影响。</div></div></div></div>
+    </article>
+    <article id="npc-penny" class="npc-card" data-name="潘妮" data-en="Penny" data-search="潘妮 penny 拖车（小镇南侧河边） 最爱所有书籍——书店几十块一本的最爱礼物，性价比全游戏最高；注意她讨厌兔子的脚；教文森特和贾斯读书时不要打扰。 钻石 绿宝石 甜瓜 虞美人花 沙鱼 椰汁汤 红之盛宴 块茎拼盘 虞美人籽松糕 所有书籍 黄水仙 韭葱 所有奶类 所有古物 2 心 晴天的 9:00–14:00 进入小镇 乔治够不到信箱深处的信，潘妮主动帮他取出来，却被他恼羞成怒地训了一顿；她发现你在场，问你是不是都看到了。 「我看到了，你做了件好事。」 「我看到了，你应该先问过乔治要不要帮忙。」 「我只是路过，没注意。」 「我不想多想这件事。」 「这只是人生不同阶段而已。」 「所以我们应该尊敬长者。」 「我宁可英年早逝……」 4 心 她在家时进入潘姆的拖车 她抱怨家里太乱请你帮忙打扫，潘姆回来后冲她发火并把你赶走，母女俩私下继续争执；第二天你会收到潘妮的道歉信。 6 心 她在家时进入拖车 她请你试吃自己发明的新菜，做完还会邀你一起看电影（体力 +165）。 （撒谎）「嗯！太好吃了！」 「呃……剩下的能打包吗？」 「味道确实很特别……你是怎么做得这么筋道的？」 8 心 晴天的 9:00–16:00 进入煤矿森林 她带贾斯和文森特郊游，邀你当客座讲师分享乡村生活，之后又问你有没有想过当父母。 「我很乐意！」 「好啊。」 「不……我受不了小孩。」 「我没认真想过。」 「当然想，我想要个大家庭。」 「大概吧，这是很自然的想法。」 「不，我觉得自己当不好。」 「不，地球上人已经够多了。」 「不，我不想被家庭绑住。」 10 心 收到她的信后 19:00–24:00 进入温泉的泳池区 她泡在池子里问你知不知道为什么约你来这里，随后坦白心意。 「你有话要对我说。」 「我不太确定。」 「你想看我穿泳装。」 「我也是同样的感觉。」 「抱歉，我没那种感觉……」 14 心（婚后） 15:00–19:00 她在家时进入农舍 她迎你回家，提出用手作装饰重新布置卧室，问你喜欢什么风格（选了她会在 3 天后动工，并请你先把箱子挪走）。 还行 不太好…… 棒极了！ 森林与明月：宁静蓝 草莓之家 海盗主题 我不想有任何改动！" data-tags="marry marry-female female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-penny" aria-expanded="false">潘妮 <span class="en">Penny</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 2 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 拖车（小镇南侧河边）</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">钻石</li>
+<li class="chip-love">绿宝石</li>
+<li class="chip-love">甜瓜</li>
+<li class="chip-love">虞美人花</li>
+<li class="chip-love">沙鱼</li>
+<li class="chip-love">椰汁汤</li>
+<li class="chip-love">红之盛宴</li>
+<li class="chip-love">块茎拼盘</li>
+<li class="chip-love">虞美人籽松糕</li>
+<li class="chip-love">所有书籍</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">韭葱</li>
+<li class="chip-like">所有奶类</li>
+<li class="chip-like">所有古物</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天一 / 雨天二</td><td class="sched-detail">全天在家；或 8:10–16:00 去博物馆看书</td></tr>
+<tr><td class="sched-cond">春 / 秋 / 冬 周一、四、五</td><td class="sched-detail">6:00–8:00 家 → 8:00–12:30 墓园旁看书 → 12:30–16:00 家 → 16:00–18:40 墓园旁</td></tr>
+<tr><td class="sched-cond">春 / 秋 / 冬 周二、三</td><td class="sched-detail">6:00–9:00 家 → 9:00–14:00 博物馆 → 14:00–16:20 冰淇淋摊工作 → 16:20–17:50 文森特家 → 17:50–18:30 贾斯家 → 18:30 家</td></tr>
+<tr><td class="sched-cond">春 / 秋 / 冬 周六</td><td class="sched-detail">6:00–10:00 家 → 10:00–12:00 墓园旁 → 12:00–17:00 游乐场 → 17:00–20:00 海莉家门口 → 20:00 家</td></tr>
+<tr><td class="sched-cond">夏季周一</td><td class="sched-detail">6:00–8:00 家 → 8:00–12:00 书摊旁河流 → 12:00–17:00 罗宾木匠店 → 18:00–21:00 家</td></tr>
+<tr><td class="sched-cond">夏季周一、四（另一条）</td><td class="sched-detail">8:00–13:00 书摊旁河流 → 13:00–18:00 社区中心附近 → 18:00–19:00 家</td></tr>
+<tr><td class="sched-cond">夏季周二、三、五</td><td class="sched-detail">6:00–9:00 家 → 9:00–14:00 博物馆 → 14:00–18:30 送两个孩子回家 → 18:30–20:00 家</td></tr>
+<tr><td class="sched-cond">冬季 4 日 / 冬季 15 日</td><td class="sched-detail">分别去哈维诊所体检（11:30–16:00）/ 夜市</td></tr>
+<tr><td class="sched-cond">冬季日常（社区中心已修复）</td><td class="sched-detail">6:00–10:30 家 → 10:30–18:00 社区中心 → 18:00–21:00 家</td></tr></table>
+      </div>
+      <div class="tip">💡 最爱所有书籍——书店几十块一本的最爱礼物，性价比全游戏最高；注意她讨厌兔子的脚；教文森特和贾斯读书时不要打扰。</div>
+      <div class="ev-panel" id="ev-penny"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：晴天的 9:00–14:00 进入小镇</span></div><p class="ev-story">乔治够不到信箱深处的信，潘妮主动帮他取出来，却被他恼羞成怒地训了一顿；她发现你在场，问你是不是都看到了。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「我看到了，你做了件好事。」</td><td class="opt-val up">+50</td><td class="opt-res">最优选项</td></tr><tr><td class="opt-text">「我看到了，你应该先问过乔治要不要帮忙。」</td><td class="opt-val down">-50</td><td class="opt-res">她会向乔治道歉</td></tr><tr><td class="opt-text">「我只是路过，没注意。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我不想多想这件事。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「这只是人生不同阶段而已。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「所以我们应该尊敬长者。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我宁可英年早逝……」</td><td class="opt-val zero">无影响</td><td class="opt-res">她会认真说这样想很糟糕</td></tr></tbody></table><div class="ev-note">💡 仅第一组有 ±50，其余是延续对话。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：她在家时进入潘姆的拖车</span></div><p class="ev-story">她抱怨家里太乱请你帮忙打扫，潘姆回来后冲她发火并把你赶走，母女俩私下继续争执；第二天你会收到潘妮的道歉信。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：她在家时进入拖车</span></div><p class="ev-story">她请你试吃自己发明的新菜，做完还会邀你一起看电影（体力 +165）。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">（撒谎）「嗯！太好吃了！」</td><td class="opt-val up">+50</td><td class="opt-res">她把这道菜以你命名</td></tr><tr><td class="opt-text">「呃……剩下的能打包吗？」</td><td class="opt-val down">-50</td><td class="opt-res">她很受挫</td></tr><tr><td class="opt-text">「味道确实很特别……你是怎么做得这么筋道的？」</td><td class="opt-val zero">无影响</td><td class="opt-res">她同样受挫</td></tr></tbody></table><div class="ev-note">💡 想加好感就撒这个善意的谎（+50）。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：晴天的 9:00–16:00 进入煤矿森林</span></div><p class="ev-story">她带贾斯和文森特郊游，邀你当客座讲师分享乡村生活，之后又问你有没有想过当父母。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「我很乐意！」</td><td class="opt-val up">+10</td><td class="opt-res"></td></tr><tr><td class="opt-text">「好啊。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「不……我受不了小孩。」</td><td class="opt-val down">-1500</td><td class="opt-res">⚠️ 全游戏最惨扣分，剧情直接结束</td></tr><tr><td class="opt-text">「我没认真想过。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「当然想，我想要个大家庭。」</td><td class="opt-val up">+20</td><td class="opt-res"></td></tr><tr><td class="opt-text">「大概吧，这是很自然的想法。」</td><td class="opt-val up">+20</td><td class="opt-res"></td></tr><tr><td class="opt-text">「不，我觉得自己当不好。」</td><td class="opt-val up">+10</td><td class="opt-res"></td></tr><tr><td class="opt-text">「不，地球上人已经够多了。」</td><td class="opt-val down">-10</td><td class="opt-res"></td></tr><tr><td class="opt-text">「不，我不想被家庭绑住。」</td><td class="opt-val down">-10</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 ⚠️ 千万别选「我受不了小孩」，-1500 好感（约 6 颗心）且直接中断事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：收到她的信后 19:00–24:00 进入温泉的泳池区</span></div><p class="ev-story">她泡在池子里问你知不知道为什么约你来这里，随后坦白心意。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「你有话要对我说。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我不太确定。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「你想看我穿泳装。」</td><td class="opt-val zero">无影响</td><td class="opt-res">她连忙说不是</td></tr><tr><td class="opt-text">「我也是同样的感觉。」</td><td class="opt-val zero">无影响</td><td class="opt-res">顺利在一起</td></tr><tr><td class="opt-text">「抱歉，我没那种感觉……」</td><td class="opt-val down">-1500</td><td class="opt-res">⚠️ 她当场哭出来，剧情中断</td></tr></tbody></table><div class="ev-note">💡 ⚠️ 拒绝告白同样是 -1500 好感，前期投入几乎全废。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：15:00–19:00 她在家时进入农舍</span></div><p class="ev-story">她迎你回家，提出用手作装饰重新布置卧室，问你喜欢什么风格（选了她会在 3 天后动工，并请你先把箱子挪走）。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">还行</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">不太好……</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">棒极了！</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">森林与明月：宁静蓝</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">草莓之家</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">海盗主题</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">我不想有任何改动！</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 婚后事件，纯装饰选择。</div></div></div></div>
+    </article>
+    <article id="npc-maru" class="npc-card" data-name="玛鲁" data-en="Maru" data-search="玛鲁 maru 木匠的商店 生日夏季 10，当天去诊所找她；电池组靠避雷针 / 太阳能板稳定产出，草莓、花椰菜春季种植。 电池组 钻石 金锭 铱锭 花椰菜 矮人小工具 草莓 矿工特供 大黄（派） 鸡油菌 鸭肚 铜锭 铁锭 熔岩菇 紫蘑菇 松焦油 橡树树脂 石英 2 心 玛鲁在木匠的商店时进入店内 她和德米特里厄斯在实验室测土壤样本，她让你帮忙看着烧杯；她走开后德米特里厄斯说玛鲁是他的「特别小女儿」，不希望任何事耽误她的前程。 4 心 玛鲁在诊所时进入哈维的诊所 她被你进门吓到，打碎了手里的玻璃烧杯，慌着问你该怎么办。 「直接从地上捞起来，他看不出来的。」 「告诉哈维是我的错。」 「告诉哈维这是场意外。」 6 心 晴天的 21:00–23:40 进入深山 她在用望远镜观星，让你也看一眼，问你看到了什么。 「一颗美丽的星球。」 「一片冰冷黑暗的深渊。」 8 心 玛鲁在木匠的商店时进入店内 她展示新项目的零件，让你把手放上去做演示，结果你被电了一下；她吓坏了，赶紧给你涂烧伤药膏并道歉。 「没事，一点都不疼。」 「你最好是对的，疼死了！」 10 心 9:00–16:00 进入木匠的商店 她的大项目完成了——帮父母干活用的机器人 marilda（maru&#x27;s interactive laboratory device alpha），她特地等你来才启动。 「你的发明真让我佩服。」 「我好失望……你该把它做成奴隶的。」 「marilda 只是被设计得像人的机器。」 「我开玩笑的，marilda 该有自由。」 「我会让它去农场干活。」 「所以你爸爸现在不反对『我们』了？」 （什么都不说，就盯着她看） 14 心（婚后） 第一段：非周日非冬季 6:10–17:00 她在家时进农舍；第二段：晴天 22:00–1:00 去深山 她告诉你明晚有罕见的 astronomical 天象，约你上山一起观测；两人架起望远镜看彗星划过。 「一个新生儿」 「我们一起变老」 「更多钱」" data-tags="marry marry-female female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-maru" aria-expanded="false">玛鲁 <span class="en">Maru</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 10 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 木匠的商店</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">电池组</li>
+<li class="chip-love">钻石</li>
+<li class="chip-love">金锭</li>
+<li class="chip-love">铱锭</li>
+<li class="chip-love">花椰菜</li>
+<li class="chip-love">矮人小工具</li>
+<li class="chip-love">草莓</li>
+<li class="chip-love">矿工特供</li>
+<li class="chip-love">大黄（派）</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">鸡油菌</li>
+<li class="chip-like">鸭肚</li>
+<li class="chip-like">铜锭</li>
+<li class="chip-like">铁锭</li>
+<li class="chip-like">熔岩菇</li>
+<li class="chip-like">紫蘑菇</li>
+<li class="chip-like">松焦油</li>
+<li class="chip-like">橡树树脂</li>
+<li class="chip-like">石英</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天 / 夏季周日</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周一 / 周日</td><td class="sched-detail">6:00–13:30 家 → 13:30–18:30 酒吧南边附近 → 18:30–23:00 家</td></tr>
+<tr><td class="sched-cond">周二 / 周四</td><td class="sched-detail">6:00–8:00 家 → 8:00–16:45 哈维诊所工作 → 16:45–0:00 家</td></tr>
+<tr><td class="sched-cond">春 / 秋季日常</td><td class="sched-detail">6:00–14:00 家 → 14:00–18:00 社区中心东边 → 18:00–22:00 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–14:00 家 → 14:00–19:00 深山湖边 → 19:00–0:00 家</td></tr>
+<tr><td class="sched-cond">冬季日常</td><td class="sched-detail">6:00–14:40 家 → 14:40–18:00 社区中心或附近 → 18:00–0:00 家</td></tr>
+<tr><td class="sched-cond">夏季 10 日 / 冬季 16 日</td><td class="sched-detail">生日当天在哈维诊所（10:30–16:00）/ 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 生日夏季 10，当天去诊所找她；电池组靠避雷针 / 太阳能板稳定产出，草莓、花椰菜春季种植。</div>
+      <div class="ev-panel" id="ev-maru"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：玛鲁在木匠的商店时进入店内</span></div><p class="ev-story">她和德米特里厄斯在实验室测土壤样本，她让你帮忙看着烧杯；她走开后德米特里厄斯说玛鲁是他的「特别小女儿」，不希望任何事耽误她的前程。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：玛鲁在诊所时进入哈维的诊所</span></div><p class="ev-story">她被你进门吓到，打碎了手里的玻璃烧杯，慌着问你该怎么办。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「直接从地上捞起来，他看不出来的。」</td><td class="opt-val down">-50</td><td class="opt-res">她拒绝，还是向哈维承认了</td></tr><tr><td class="opt-text">「告诉哈维是我的错。」</td><td class="opt-val down">-20</td><td class="opt-res">她真的把锅甩给你</td></tr><tr><td class="opt-text">「告诉哈维这是场意外。」</td><td class="opt-val up">+50</td><td class="opt-res">最优选项：她道歉、哈维感谢你们</td></tr></tbody></table><div class="ev-note">💡 诚实担当 +50，甩锅 -20。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：晴天的 21:00–23:40 进入深山</span></div><p class="ev-story">她在用望远镜观星，让你也看一眼，问你看到了什么。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「一颗美丽的星球。」</td><td class="opt-val up">+30</td><td class="opt-res">她说「很震撼对吧」</td></tr><tr><td class="opt-text">「一片冰冷黑暗的深渊。」</td><td class="opt-val down">-30</td><td class="opt-res">她略显失落</td></tr></tbody></table><div class="ev-note">💡 +30 / -30。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：玛鲁在木匠的商店时进入店内</span></div><p class="ev-story">她展示新项目的零件，让你把手放上去做演示，结果你被电了一下；她吓坏了，赶紧给你涂烧伤药膏并道歉。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「没事，一点都不疼。」</td><td class="opt-val up">+30</td><td class="opt-res">她松口气</td></tr><tr><td class="opt-text">「你最好是对的，疼死了！」</td><td class="opt-val down">-50</td><td class="opt-res">她说这下气氛全毁了</td></tr></tbody></table><div class="ev-note">💡 +30 / -50。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：9:00–16:00 进入木匠的商店</span></div><p class="ev-story">她的大项目完成了——帮父母干活用的机器人 MarILDA（Maru&#x27;s Interactive Laboratory Device Alpha），她特地等你来才启动。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「你的发明真让我佩服。」</td><td class="opt-val up">+50</td><td class="opt-res">她很感动</td></tr><tr><td class="opt-text">「我好失望……你该把它做成奴隶的。」</td><td class="opt-val down">-50</td><td class="opt-res">她觉得你冷血</td></tr><tr><td class="opt-text">「MarILDA 只是被设计得像人的机器。」</td><td class="opt-val up">+50</td><td class="opt-res">她认真反驳，并感谢你来看</td></tr><tr><td class="opt-text">「我开玩笑的，MarILDA 该有自由。」</td><td class="opt-val up">+50</td><td class="opt-res">她说这玩笑不好笑</td></tr><tr><td class="opt-text">「我会让它去农场干活。」</td><td class="opt-val down">-50</td><td class="opt-res">她说你今天不对劲</td></tr><tr><td class="opt-text">「所以你爸爸现在不反对『我们』了？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">（什么都不说，就盯着她看）</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 三个 +50、两个 -50，别拿「奴隶/干农活」开玩笑。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：第一段：非周日非冬季 6:10–17:00 她在家时进农舍；第二段：晴天 22:00–1:00 去深山</span></div><p class="ev-story">她告诉你明晚有罕见的 astronomical 天象，约你上山一起观测；两人架起望远镜看彗星划过。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「一个新生儿」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我们一起变老」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「更多钱」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 婚后事件，无好感影响。</div></div></div></div>
+    </article>
+    <article id="npc-abigail" class="npc-card" data-name="阿比盖尔" data-en="Abigail" data-search="阿比盖尔 abigail 皮埃尔的杂货店 紫发游戏宅，周三晚上在墓园、周日下午在法师塔附近；紫水晶矿层最常见，河豚要夏季在海里钓。 紫水晶 香蕉布丁 黑莓脆皮饼 南瓜 河豚 怪物图鉴 香辣鳗鱼 巧克力蛋糕 石英 蜥蜴的爪子 战斗季刊 骨笛 古剑 2 心 除周六外任意一天，阿比盖尔在店里时进入皮埃尔的杂货店 她在房里打游戏打得生气，拉你一起玩《草原之王的旅程》双人版（她会操纵第二个角色帮你）。 4 心 雨天的 12:00–19:00 进入深山（冬季无法触发） 她在湖边吹长笛，问你雨天出来干嘛；随后邀你一起到树下躲雨，你掏出里尔琴，两人合奏。 「只是干点活。」 「享受这样的天气。」 「我也可以问你同样的问题。」 6 心 非雨天的 21:00–24:00 从任意方向进入鹈鹕镇 她在墓地里练剑，说想出去冒险，问你有没有用过剑；皮埃尔来叫她回去帮忙做饭，她气呼呼地走开并叫你跟上。 「用过，很刺激！」 「用过，但只用于自卫。」 「用过，但太危险了，你该待在安全的地方。」 「没有。」 8 心 收到她的信后 20:00–22:00 进入皮埃尔的杂货店（她在店里） 她（署名「abby」）邀你去她房间，给你看通灵板；板上的讯息暗示她开始对你有感觉，她害羞地把你赶出房间，第二天早上来道歉。 10 心 17:00–24:00 进入矿井或采石场矿井（需已送花束；已送美人鱼吊坠则不再触发） 她准备下矿井时被蝙蝠吓到，紧接着成百只蝙蝠涌出，她吓得缩在角落，你冲过去安慰她，她随后表白。 「发生什么事了？」 「你还好吗？」 「有我在，你很安全。」 「我也会害怕。」 「你哭得像个小婴儿，别哭了。」 14 心（婚后） 6:10–17:00 进入农场北边通往木匠商店的小径（后山） 你在灌木丛里采集时冒出一只怪物把你打倒，阿比盖尔赶来杀掉怪物，说这是她第一次夺走生命。 「很遗憾，但别无选择。」 「怪物不值得同情！」 「这世界就是这么残酷，孩子。」 「你非杀了他不可吗？」" data-tags="marry marry-female female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-abigail" aria-expanded="false">阿比盖尔 <span class="en">Abigail</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 13 日</span><span class="heart-badge">💗 可结婚</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 皮埃尔的杂货店</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">紫水晶</li>
+<li class="chip-love">香蕉布丁</li>
+<li class="chip-love">黑莓脆皮饼</li>
+<li class="chip-love">南瓜</li>
+<li class="chip-love">河豚</li>
+<li class="chip-love">怪物图鉴</li>
+<li class="chip-love">香辣鳗鱼</li>
+<li class="chip-love">巧克力蛋糕</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">石英</li>
+<li class="chip-like">蜥蜴的爪子</li>
+<li class="chip-like">战斗季刊</li>
+<li class="chip-like">骨笛</li>
+<li class="chip-like">古剑</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">春季 4 日</td><td class="sched-detail">哈维诊所（12:30–16:00）</td></tr>
+<tr><td class="sched-cond">6 日 / 16 日</td><td class="sched-detail">6:00–15:00 家 → 15:00–20:00 深山湖泊 → 20:00–21:40 家</td></tr>
+<tr><td class="sched-cond">11 日 / 25 日（与塞巴斯蒂安友谊低于 6 心）</td><td class="sched-detail">6:00–10:30 家 → 10:30–18:30 塞巴斯蒂安房间 → 18:30–18:50 家</td></tr>
+<tr><td class="sched-cond">雨天</td><td class="sched-detail">行程一全天在家；行程二 14:00–21:00 酒吧</td></tr>
+<tr><td class="sched-cond">周三</td><td class="sched-detail">6:00–10:00 家 → 10:00–18:00 博物馆 → 18:00–22:00 墓园 → 22:00–22:40 家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–15:00 家 → 15:00–21:00 酒吧 → 21:00–21:40 家</td></tr>
+<tr><td class="sched-cond">周日</td><td class="sched-detail">6:00–13:00 家 → 13:00–20:00 法师塔附近 → 20:00–22:30 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–11:00 家 → 11:00–14:00 火车站台 → 14:00–17:30 深山湖泊 → 17:30–20:10 家</td></tr>
+<tr><td class="sched-cond">秋季周一</td><td class="sched-detail">6:00–11:00 家 → 11:00–18:00 沙滩 → 18:00–19:30 家</td></tr>
+<tr><td class="sched-cond">秋季日常</td><td class="sched-detail">6:00–13:00 家 → 13:00–17:00 巴士站 → 17:00–19:30 家</td></tr>
+<tr><td class="sched-cond">冬季日常</td><td class="sched-detail">6:00–10:30 家 → 10:30–14:30 罗宾木匠商店 → 14:30–19:30 家</td></tr>
+<tr><td class="sched-cond">冬季 15 日</td><td class="sched-detail">罗宾店 → 14:30–0:00 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 紫发游戏宅，周三晚上在墓园、周日下午在法师塔附近；紫水晶矿层最常见，河豚要夏季在海里钓。</div>
+      <div class="ev-panel" id="ev-abigail"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：除周六外任意一天，阿比盖尔在店里时进入皮埃尔的杂货店</span></div><p class="ev-story">她在房里打游戏打得生气，拉你一起玩《草原之王的旅程》双人版（她会操纵第二个角色帮你）。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 失败也不影响后续，纯好玩。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：雨天的 12:00–19:00 进入深山（冬季无法触发）</span></div><p class="ev-story">她在湖边吹长笛，问你雨天出来干嘛；随后邀你一起到树下躲雨，你掏出里尔琴，两人合奏。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「只是干点活。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「享受这样的天气。」</td><td class="opt-val up">+50</td><td class="opt-res">最优选项</td></tr><tr><td class="opt-text">「我也可以问你同样的问题。」</td><td class="opt-val up">+10</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 ⚠️ 如果砍掉了山湖边那棵树，事件里的树会消失（不影响触发）。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：非雨天的 21:00–24:00 从任意方向进入鹈鹕镇</span></div><p class="ev-story">她在墓地里练剑，说想出去冒险，问你有没有用过剑；皮埃尔来叫她回去帮忙做饭，她气呼呼地走开并叫你跟上。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「用过，很刺激！」</td><td class="opt-val up">+10</td><td class="opt-res"></td></tr><tr><td class="opt-text">「用过，但只用于自卫。」</td><td class="opt-val up">+10</td><td class="opt-res"></td></tr><tr><td class="opt-text">「用过，但太危险了，你该待在安全的地方。」</td><td class="opt-val down">-100</td><td class="opt-res">⚠️ 大幅扣分</td></tr><tr><td class="opt-text">「没有。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 ⚠️ 别用「太危险」说教她，-100。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：收到她的信后 20:00–22:00 进入皮埃尔的杂货店（她在店里）</span></div><p class="ev-story">她（署名「Abby」）邀你去她房间，给你看通灵板；板上的讯息暗示她开始对你有感觉，她害羞地把你赶出房间，第二天早上来道歉。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 晚上 9 点后没「小镇钥匙」进不了店门，但可以从别处绕进去。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">10 心</span><span class="ev-trig">🎬 触发：17:00–24:00 进入矿井或采石场矿井（需已送花束；已送美人鱼吊坠则不再触发）</span></div><p class="ev-story">她准备下矿井时被蝙蝠吓到，紧接着成百只蝙蝠涌出，她吓得缩在角落，你冲过去安慰她，她随后表白。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「发生什么事了？」</td><td class="opt-val up">+20</td><td class="opt-res"></td></tr><tr><td class="opt-text">「你还好吗？」</td><td class="opt-val up">+40</td><td class="opt-res">最优</td></tr><tr><td class="opt-text">「有我在，你很安全。」</td><td class="opt-val up">+20</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我也会害怕。」</td><td class="opt-val up">+40</td><td class="opt-res">最优</td></tr><tr><td class="opt-text">「你哭得像个小婴儿，别哭了。」</td><td class="opt-val down">-50</td><td class="opt-res">明显扣分</td></tr></tbody></table><div class="ev-note">💡 关心向 +20/+40，嘲笑 -50。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心（婚后）</span><span class="ev-trig">🎬 触发：6:10–17:00 进入农场北边通往木匠商店的小径（后山）</span></div><p class="ev-story">你在灌木丛里采集时冒出一只怪物把你打倒，阿比盖尔赶来杀掉怪物，说这是她第一次夺走生命。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「很遗憾，但别无选择。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「怪物不值得同情！」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「这世界就是这么残酷，孩子。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「你非杀了他不可吗？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 婚后事件，无好感影响。</div></div></div></div>
+    </article></div>
+</section>
+
+<section id="others">
+  <h2 class="sec-title">🏠 其他村民（22 位）</h2>
+  <p class="sec-desc">男 14 位 / 女 8 位。功能型 NPC 优先培养：罗宾（建筑）、克林特（工具）、威利（钓鱼）、格斯（食谱）、卡洛琳（茶苗）。</p>
+  <div class="npc-grid">
+    <article id="npc-sandy" class="npc-card" data-name="桑迪" data-en="Sandy" data-search="桑迪 sandy 沙漠绿洲 原译名“墨迪”，官方中文为“桑迪”；在绿洲每天可花 300g 给鹈鹕镇某人寄信，生日秋季 15。 番红花 黄水仙 芒果糯米饭 甜豌豆 羊奶 大瓶羊奶 石英 动物毛 所有水果 7 心 好感达到 7 心后自动触发 她寄来一份食谱。" data-tags="other female special">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-sandy" aria-expanded="false">桑迪 <span class="en">Sandy</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 15 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 1 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 沙漠绿洲</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">番红花</li>
+<li class="chip-love">黄水仙</li>
+<li class="chip-love">芒果糯米饭</li>
+<li class="chip-love">甜豌豆</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">羊奶</li>
+<li class="chip-like">大瓶羊奶</li>
+<li class="chip-like">石英</li>
+<li class="chip-like">动物毛</li>
+<li class="chip-like">所有水果</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">全年</td><td class="sched-detail">几乎全天在绿洲店内（需修复巴士或使用沙漠图腾才能到达）</td></tr></table>
+      </div>
+      <div class="tip">💡 原译名“墨迪”，官方中文为“桑迪”；在绿洲每天可花 300g 给鹈鹕镇某人寄信，生日秋季 15。</div>
+      <div class="ev-panel" id="ev-sandy"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 1 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件；需先修复巴士或使用沙漠图腾。</div></div></div></div>
+    </article>
+    <article id="npc-leo" class="npc-card" data-name="雷欧" data-en="Leo" data-search="雷欧 leo 姜岛 → 6 心后迁居深山树屋 住在姜岛，需解锁姜岛后才能送礼；6 心后他会搬来深山树屋，之后按普通村民找即可；鸵鸟蛋来自姜岛农场。 鸭毛 芒果 鸵鸟蛋 鹦鹉蛋 夏威夷芋泥（poi） 龙牙 鹦鹉螺 石英 香味浆果 海胆 芒果糯米饭 2 心 晴天 6:00–18:00 进入姜岛西部 他在海边和你聊天，问你为什么来这儿、家乡是什么样的。 只是来享受海浪。 来找鱼。 在想某个特别的人。 在思考一些大问题。 「那里有一整座小镇的人。」 「有森林、海滩和高山。」 「和这里差不多，只是更冷。」 「我住在农场里。」 「是的。」 「这对一只鸟有什么要紧？」 3 心 好感达到 3 心后自动触发 他寄来一份食谱。 4 心 晴天 6:00–18:00 进入姜岛北部（仅限他还没搬进星露谷时） 他在岛上带你认识自己的生活环境。 6 心 晴天 6:00–18:00 进入姜岛南部 他给你看岛上他最喜欢的地方。 7 心 好感达到 7 心后自动触发 他再寄来一份食谱。 9 心 非雨天 6:00–19:00 进入深山 他搬来星露谷后（6 心以上）在深山和你重逢。" data-tags="other male special">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-leo" aria-expanded="false">雷欧 <span class="en">Leo</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 26 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 6 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 姜岛 → 6 心后迁居深山树屋</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">鸭毛</li>
+<li class="chip-love">芒果</li>
+<li class="chip-love">鸵鸟蛋</li>
+<li class="chip-love">鹦鹉蛋</li>
+<li class="chip-love">夏威夷芋泥（Poi）</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">龙牙</li>
+<li class="chip-like">鹦鹉螺</li>
+<li class="chip-like">石英</li>
+<li class="chip-like">香味浆果</li>
+<li class="chip-like">海胆</li>
+<li class="chip-like">芒果糯米饭</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">低于 6 心 · 雨天</td><td class="sched-detail">全天在姜岛小屋</td></tr>
+<tr><td class="sched-cond">低于 6 心 · 周二</td><td class="sched-detail">6:00–10:30 姜岛小屋 → 10:30–13:30 岛屿南部 → 13:30–17:00 岛屿东部 → 17:00–20:00 岛屿北部姜岛商人旁 → 20:00 回屋</td></tr>
+<tr><td class="sched-cond">低于 6 心 · 周三</td><td class="sched-detail">6:00–9:30 姜岛小屋 → 9:30–14:00 岛屿东部宝石鸟神龛 → 14:00–21:00 家</td></tr>
+<tr><td class="sched-cond">低于 6 心 · 日常</td><td class="sched-detail">6:00–12:00 姜岛小屋 → 12:00–15:00 岛屿南部 → 15:00–20:00 岛屿北部火山口西部</td></tr>
+<tr><td class="sched-cond">6 心以上 · 周一 / 周日</td><td class="sched-detail">上午回姜岛活动，傍晚前后回到树屋</td></tr>
+<tr><td class="sched-cond">6 心以上 · 周二、三</td><td class="sched-detail">6:00–9:00 树屋 → 9:00–16:20 博物馆 → 16:20–22:00 树屋</td></tr>
+<tr><td class="sched-cond">6 心以上 · 周四、五</td><td class="sched-detail">6:00–9:30 树屋 → 9:30–15:00 深山湖泊 → 15:00–22:00 树屋</td></tr>
+<tr><td class="sched-cond">6 心以上 · 周六</td><td class="sched-detail">6:00–9:40 树屋 → 9:40–12:00 海莉家旁 → 12:00–17:00 游乐场 → 17:00–22:00 树屋</td></tr>
+<tr><td class="sched-cond">6 心以上 · 冬季 15 日</td><td class="sched-detail">树屋 → 莱纳斯帐篷 → 夜市 → 23:30 树屋</td></tr></table>
+      </div>
+      <div class="tip">💡 住在姜岛，需解锁姜岛后才能送礼；6 心后他会搬来深山树屋，之后按普通村民找即可；鸵鸟蛋来自姜岛农场。</div>
+      <div class="ev-panel" id="ev-leo"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 6 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：晴天 6:00–18:00 进入姜岛西部</span></div><p class="ev-story">他在海边和你聊天，问你为什么来这儿、家乡是什么样的。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">只是来享受海浪。</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">来找鱼。</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">在想某个特别的人。</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">在思考一些大问题。</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「那里有一整座小镇的人。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「有森林、海滩和高山。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「和这里差不多，只是更冷。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「我住在农场里。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「是的。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「这对一只鸟有什么要紧？」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 全部不影响好感，是了解姜岛小男孩的对话。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：晴天 6:00–18:00 进入姜岛北部（仅限他还没搬进星露谷时）</span></div><p class="ev-story">他在岛上带你认识自己的生活环境。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：晴天 6:00–18:00 进入姜岛南部</span></div><p class="ev-story">他给你看岛上他最喜欢的地方。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他再寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">9 心</span><span class="ev-trig">🎬 触发：非雨天 6:00–19:00 进入深山</span></div><p class="ev-story">他搬来星露谷后（6 心以上）在深山和你重逢。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div></div></div>
+    </article>
+    <article id="npc-pierre" class="npc-card" data-name="皮埃尔" data-en="Pierre" data-search="皮埃尔 pierre 皮埃尔的杂货店 开店时间 9:00–17:00，关门后去酒吧；价格目录在店里可买（自己商店的商品）。 炸鱿鱼 价格目录 黄水仙 蒲公英 3 心 好感达到 3 心后自动触发 他寄来一份食谱。 6 心 进入皮埃尔的杂货店 进店会触发一段关于他生意与家庭的过场动画。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-pierre" aria-expanded="false">皮埃尔 <span class="en">Pierre</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 26 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 2 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 皮埃尔的杂货店</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">炸鱿鱼</li>
+<li class="chip-love">价格目录</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">蒲公英</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–17:00 店里 → 17:00–22:50 酒吧 → 22:50 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">全天在店里营业</td></tr></table>
+      </div>
+      <div class="tip">💡 开店时间 9:00–17:00，关门后去酒吧；价格目录在店里可买（自己商店的商品）。</div>
+      <div class="ev-panel" id="ev-pierre"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 2 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：进入皮埃尔的杂货店</span></div><p class="ev-story">进店会触发一段关于他生意与家庭的过场动画。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div></div></div>
+    </article>
+    <article id="npc-caroline" class="npc-card" data-name="卡洛琳" data-en="Caroline" data-search="卡洛琳 caroline 皮埃尔的杂货店 好感达到 2 心后可进入她家的日光房，是获得茶苗（绿茶来源）的关键；阿比盖尔的母亲。 鱼肉卷 绿茶 夏季亮片 热带咖喱 黄水仙 茶叶 野山葵 2 心 非雨天的 9:00–17:00，从她家厨房左上方的门进入日光房 她带你参观自己的日光房，问你觉得怎么样。 「真漂亮！」 「很让人放松。」 「这里也太热了吧……」 「比不上我的农场！」 3 心 好感达到 3 心后自动触发 她寄来欧洲萝卜汤食谱。 6 心 卡洛琳和阿比盖尔都在时进入皮埃尔的杂货店 你听见母女俩在厨房争执。 7 心 好感达到 7 心后自动触发 她寄来蔬菜杂烩食谱。" data-tags="other female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-caroline" aria-expanded="false">卡洛琳 <span class="en">Caroline</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 7 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 4 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 皮埃尔的杂货店</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">鱼肉卷</li>
+<li class="chip-love">绿茶</li>
+<li class="chip-love">夏季亮片</li>
+<li class="chip-love">热带咖喱</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">茶叶</li>
+<li class="chip-like">野山葵</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天 / 周二</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周三</td><td class="sched-detail">6:00–8:00 家 → 8:00–12:00 日光房 → 12:00–17:00 喷泉 → 21:00 家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–8:00 家 → 8:00–12:00 日光房 → 12:00–17:00 博物馆 → 21:00 家</td></tr>
+<tr><td class="sched-cond">周六（社区中心已修复）</td><td class="sched-detail">6:00–11:00 家 → 11:00–17:00 社区中心 → 17:00–21:00 家</td></tr>
+<tr><td class="sched-cond">周日</td><td class="sched-detail">6:00–14:40 家 → 14:40–18:30 社区中心前树下 → 18:30–21:00 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–10:00 家 → 10:00–12:00 日光房 → 12:00–13:30 家 → 13:30–16:00 小镇广场 → 21:00 家</td></tr>
+<tr><td class="sched-cond">秋季 25 日 / 冬季 16 日</td><td class="sched-detail">分别去哈维诊所体检（12:00–16:00）/ 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 好感达到 2 心后可进入她家的日光房，是获得茶苗（绿茶来源）的关键；阿比盖尔的母亲。</div>
+      <div class="ev-panel" id="ev-caroline"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 4 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：非雨天的 9:00–17:00，从她家厨房左上方的门进入日光房</span></div><p class="ev-story">她带你参观自己的日光房，问你觉得怎么样。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「真漂亮！」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「很让人放松。」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「这里也太热了吧……」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr><tr><td class="opt-text">「比不上我的农场！」</td><td class="opt-val zero">无影响</td><td class="opt-res"></td></tr></tbody></table><div class="ev-note">💡 四个选项都不影响好感。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">她寄来欧洲萝卜汤食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：卡洛琳和阿比盖尔都在时进入皮埃尔的杂货店</span></div><p class="ev-story">你听见母女俩在厨房争执。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她寄来蔬菜杂烩食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-lewis" class="npc-card" data-name="刘易斯" data-en="Lewis" data-search="刘易斯 lewis 镇长的庄园 镇长，日常上午在小镇广场；和玛妮有一条若隐若现的秘恋线（秋季 9 日撞见的话别说出去）。 秋日恩赐 琉璃山药 蔬菜杂烩 辣椒 绿茶 蓝莓 椰子 仙人掌果子 3 心 好感达到 3 心后自动触发 他寄来一份食谱。 6 心 晴天的 19:00–23:00 进入小镇（需与玛妮也达到 6 心） 你在他家后面撞见他和玛妮在河边讨论要不要公开恋情。 7 心 好感达到 7 心后自动触发 他再寄来一份食谱。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-lewis" aria-expanded="false">刘易斯 <span class="en">Lewis</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 7 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 3 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 镇长的庄园</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">秋日恩赐</li>
+<li class="chip-love">琉璃山药</li>
+<li class="chip-love">蔬菜杂烩</li>
+<li class="chip-love">辣椒</li>
+<li class="chip-love">绿茶</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">蓝莓</li>
+<li class="chip-like">椰子</li>
+<li class="chip-like">仙人掌果子</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">1 日</td><td class="sched-detail">6:00–10:00 家 → 10:00–16:00 鱼店 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">3 日 / 24 日</td><td class="sched-detail">6:00–10:00 家 → 10:00–16:00 玛妮牧场 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">6 日 / 20 日</td><td class="sched-detail">6:00–10:00 家 → 10:00–13:00 克林特铁匠铺 → 13:00–16:00 博物馆 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">15 日</td><td class="sched-detail">6:00–10:00 家 → 10:00–16:00 罗宾木匠店 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">雨天</td><td class="sched-detail">6:00–14:00 家附近 → 14:00–19:40 酒吧 → 19:40–22:00 家</td></tr>
+<tr><td class="sched-cond">周二</td><td class="sched-detail">6:00–11:30 家附近 → 11:30–16:00 皮埃尔商店 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–11:40 家附近 → 皮埃尔商店 → 哈维诊所旁 → 喷泉 → 21:30 酒吧 → 23:10 家</td></tr>
+<tr><td class="sched-cond">夏季 / 秋季 / 冬季周日</td><td class="sched-detail">分别去海滩码头 / 莉亚农舍附近 / 博物馆</td></tr>
+<tr><td class="sched-cond">社区中心已修复</td><td class="sched-detail">6:00–10:40 家附近 → 10:40–18:30 社区中心 → 18:30–19:40 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–11:40 家附近 → 11:40–16:00 小镇广场 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">秋季 9 日 / 冬季 16 日</td><td class="sched-detail">玛妮牧场秘密约会行程 / 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 镇长，日常上午在小镇广场；和玛妮有一条若隐若现的秘恋线（秋季 9 日撞见的话别说出去）。</div>
+      <div class="ev-panel" id="ev-lewis"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 3 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：晴天的 19:00–23:00 进入小镇（需与玛妮也达到 6 心）</span></div><p class="ev-story">你在他家后面撞见他和玛妮在河边讨论要不要公开恋情。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他再寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-marnie" class="npc-card" data-name="玛妮" data-en="Marnie" data-search="玛妮 marnie 玛妮的牧场 牧场老板娘，卖牲畜和棚舍；贾斯和文森特的教母；周二上午去皮埃尔店“健身”时能堵到她。 钻石 农夫午餐 粉红蛋糕 南瓜派 石英 星露谷年历 所有蛋类（除虚空蛋） 所有奶类 3 心 i 6:30–9:30 离开农舍 她在门外和你打招呼，说起自己正在训练牲畜的事。 3 心 ii 好感达到 3 心后自动触发 她寄来淡汤食谱。 6 心 晴天的 19:00–23:00 进入小镇（需与刘易斯也达到 6 心） 同刘易斯的 6 心事件：两人在河边讨论公开恋情。 7 心 好感达到 7 心后自动触发 她寄来大黄派食谱。" data-tags="other female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-marnie" aria-expanded="false">玛妮 <span class="en">Marnie</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 18 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 4 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 玛妮的牧场</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">钻石</li>
+<li class="chip-love">农夫午餐</li>
+<li class="chip-love">粉红蛋糕</li>
+<li class="chip-love">南瓜派</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">石英</li>
+<li class="chip-like">星露谷年历</li>
+<li class="chip-like">所有蛋类（除虚空蛋）</li>
+<li class="chip-like">所有奶类</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天 / 周四</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周一</td><td class="sched-detail">6:00–8:10 家 → 8:10–12:00 皮埃尔商店采购 → 12:10–21:00 家</td></tr>
+<tr><td class="sched-cond">周二</td><td class="sched-detail">6:00–10:00 家 → 10:00–18:10 皮埃尔商店健身 → 18:10–21:00 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–17:00 家 → 17:00–23:00 酒吧 → 23:00 家</td></tr>
+<tr><td class="sched-cond">秋季 18 日 / 冬季 18 日</td><td class="sched-detail">分别去哈维诊所体检（10:30–16:00）</td></tr>
+<tr><td class="sched-cond">冬季 16 日</td><td class="sched-detail">6:00–16:00 家 → 16:00–23:40 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 牧场老板娘，卖牲畜和棚舍；贾斯和文森特的教母；周二上午去皮埃尔店“健身”时能堵到她。</div>
+      <div class="ev-panel" id="ev-marnie"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 4 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心 I</span><span class="ev-trig">🎬 触发：6:30–9:30 离开农舍</span></div><p class="ev-story">她在门外和你打招呼，说起自己正在训练牲畜的事。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心 II</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">她寄来淡汤食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：晴天的 19:00–23:00 进入小镇（需与刘易斯也达到 6 心）</span></div><p class="ev-story">同刘易斯的 6 心事件：两人在河边讨论公开恋情。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她寄来大黄派食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-robin" class="npc-card" data-name="罗宾" data-en="Robin" data-search="罗宾 robin 木匠的商店 建农场建筑、升级农舍都找她；塞巴斯蒂安的母亲、玛鲁的继母；最爱里的伐木秘事是书商出售的书。 山羊奶酪 桃子 意大利面 伐木秘事（woody&#x27;s secret） 石英 硬木 樵夫周刊 所有奶类 所有水果（除桃子） 6 心 她在家时进入木匠的商店 她在房间里问你一个关于家庭与生活的问题。 「是的」 「不是」 7 心 好感达到 7 心后自动触发 她寄来一份食谱，之后也会开始送你礼物。" data-tags="other female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-robin" aria-expanded="false">罗宾 <span class="en">Robin</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 21 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 2 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 木匠的商店</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">山羊奶酪</li>
+<li class="chip-love">桃子</li>
+<li class="chip-love">意大利面</li>
+<li class="chip-love">伐木秘事（Woody&#x27;s Secret）</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">石英</li>
+<li class="chip-like">硬木</li>
+<li class="chip-like">樵夫周刊</li>
+<li class="chip-like">所有奶类</li>
+<li class="chip-like">所有水果（除桃子）</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周一（社区中心已修复）</td><td class="sched-detail">6:00–17:00 店 → 17:00–19:30 社区中心 → 19:30–22:00 家</td></tr>
+<tr><td class="sched-cond">周二</td><td class="sched-detail">6:00–9:30 家 → 9:30–18:00 皮埃尔商店健身 → 18:00–21:00 家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–16:00 店 → 16:00–21:00 酒吧 → 21:00 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–17:00 店 → 17:00–19:30 家附近 → 19:30–21:00 家</td></tr>
+<tr><td class="sched-cond">夏季 18 日 / 冬季 16 日</td><td class="sched-detail">分别去哈维诊所体检（8:00–16:00）/ 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 建农场建筑、升级农舍都找她；塞巴斯蒂安的母亲、玛鲁的继母；最爱里的伐木秘事是书商出售的书。</div>
+      <div class="ev-panel" id="ev-robin"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 2 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：她在家时进入木匠的商店</span></div><p class="ev-story">她在房间里问你一个关于家庭与生活的问题。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「是的」</td><td class="opt-val up">+50</td><td class="opt-res">她很高兴</td></tr><tr><td class="opt-text">「不是」</td><td class="opt-val up">+50</td><td class="opt-res">她同样高兴</td></tr></tbody></table><div class="ev-note">💡 有趣：两个选项都 +50，随便选。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她寄来一份食谱，之后也会开始送你礼物。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-demetrius" class="npc-card" data-name="德米特里厄斯" data-en="Demetrius" data-search="德米特里厄斯 demetrius 木匠的商店 科学家，玛鲁的父亲；夏季整个白天都守在社区中心旁喷泉做观察。 豆类火锅 大米布丁 冰淇淋 草莓 恐龙蛋 紫蘑菇 所有蛋类（除虚空蛋） 所有水果（除草莓） 3 心 好感达到 3 心后自动触发 他寄来炸蘑菇食谱。 6 心 他和罗宾都在家时进入木匠的商店 他和你聊起研究偏好，让你在蔬菜和水果之间选一个。 蔬菜 水果 7 心 好感达到 7 心后自动触发 他寄来秋日恩赐食谱，之后还会开始寄礼物。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-demetrius" aria-expanded="false">德米特里厄斯 <span class="en">Demetrius</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 19 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 3 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 木匠的商店</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">豆类火锅</li>
+<li class="chip-love">大米布丁</li>
+<li class="chip-love">冰淇淋</li>
+<li class="chip-love">草莓</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">恐龙蛋</li>
+<li class="chip-like">紫蘑菇</li>
+<li class="chip-like">所有蛋类（除虚空蛋）</li>
+<li class="chip-like">所有水果（除草莓）</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周五</td><td class="sched-detail">6:00–16:00 家 → 16:00–21:00 酒吧 → 21:00 家</td></tr>
+<tr><td class="sched-cond">春季日常</td><td class="sched-detail">6:00–14:30 家 → 14:30–19:00 家附近 → 19:00–22:30 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–11:00 家 → 11:00–19:00 社区中心旁喷泉 → 19:00–22:30 家</td></tr>
+<tr><td class="sched-cond">秋季日常</td><td class="sched-detail">6:00–11:00 家 → 11:00–19:00 家附近 → 19:00–22:30 家</td></tr>
+<tr><td class="sched-cond">夏季 25 日 / 冬季 16 日</td><td class="sched-detail">分别去哈维诊所体检（8:40–16:00）/ 夜市</td></tr>
+<tr><td class="sched-cond">冬季日常</td><td class="sched-detail">全天在家</td></tr></table>
+      </div>
+      <div class="tip">💡 科学家，玛鲁的父亲；夏季整个白天都守在社区中心旁喷泉做观察。</div>
+      <div class="ev-panel" id="ev-demetrius"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 3 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来炸蘑菇食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：他和罗宾都在家时进入木匠的商店</span></div><p class="ev-story">他和你聊起研究偏好，让你在蔬菜和水果之间选一个。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">蔬菜</td><td class="opt-val down">-30</td><td class="opt-res">他不认同</td></tr><tr><td class="opt-text">水果</td><td class="opt-val up">+50</td><td class="opt-res">最优选项</td></tr></tbody></table><div class="ev-note">💡 +50 / -30，选水果。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他寄来秋日恩赐食谱，之后还会开始寄礼物。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-evelyn" class="npc-card" data-name="艾芙琳" data-en="Evelyn" data-search="艾芙琳 evelyn 河间大道 1 号 乔治的妻子、亚历克斯的奶奶；葡萄干用 5 个葡萄在烘干机制作；甜菜秋季种植。 甜菜 钻石 巧克力蛋糕 玫瑰仙子 郁金香 葡萄干 塞料面包 黄水仙 破损的眼镜 蛤 乌蛤 蚌 珊瑚 鹦鹉螺 牡蛎 海胆 4 心 她在家时进入她家 她请你尝她刚做的拿手菜，等着你的评价。 「太好吃了！」 「就像在嚼冰球一样」 7 心 好感达到 7 心后自动触发 她寄来一份食谱。" data-tags="other female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-evelyn" aria-expanded="false">艾芙琳 <span class="en">Evelyn</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 20 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 2 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 河间大道 1 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">甜菜</li>
+<li class="chip-love">钻石</li>
+<li class="chip-love">巧克力蛋糕</li>
+<li class="chip-love">玫瑰仙子</li>
+<li class="chip-love">郁金香</li>
+<li class="chip-love">葡萄干</li>
+<li class="chip-love">塞料面包</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">破损的眼镜</li>
+<li class="chip-like">蛤</li>
+<li class="chip-like">乌蛤</li>
+<li class="chip-like">蚌</li>
+<li class="chip-like">珊瑚</li>
+<li class="chip-like">鹦鹉螺</li>
+<li class="chip-like">牡蛎</li>
+<li class="chip-like">海胆</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周一 / 四 / 六（社区中心已修复）</td><td class="sched-detail">6:00–12:10 家 → 12:10–16:30 社区中心 → 16:30–21:30 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–13:00 家 → 13:00–16:30 小镇广场 → 16:30–21:30 家</td></tr>
+<tr><td class="sched-cond">春季 2 日 / 冬季 23 日</td><td class="sched-detail">分别去哈维诊所体检</td></tr>
+<tr><td class="sched-cond">冬季 17 日</td><td class="sched-detail">6:00–16:30 家 → 16:30–23:40 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 乔治的妻子、亚历克斯的奶奶；葡萄干用 5 个葡萄在烘干机制作；甜菜秋季种植。</div>
+      <div class="ev-panel" id="ev-evelyn"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 2 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：她在家时进入她家</span></div><p class="ev-story">她请你尝她刚做的拿手菜，等着你的评价。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「太好吃了！」</td><td class="opt-val up">+100</td><td class="opt-res">她非常开心</td></tr><tr><td class="opt-text">「就像在嚼冰球一样」</td><td class="opt-val down">-100</td><td class="opt-res">她非常受伤</td></tr></tbody></table><div class="ev-note">💡 全游戏单选项差距最大的一组：±100。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-george" class="npc-card" data-name="乔治" data-en="George" data-search="乔治 george 河间大道 1 号 坐轮椅的老人几乎不出门，直接去他家送礼最方便；14 心事件后周日下午会在酒吧。 炒蘑菇 韭葱 黄水仙 所有普遍喜欢的礼物（除花） 3 心 好感达到 3 心后自动触发 他寄来一份食谱。 6 心 他在家时进入他家 他够不到书架上的东西，你顺手帮他取了下来。 7 心 好感达到 7 心后自动触发 他再寄来一份食谱。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-george" aria-expanded="false">乔治 <span class="en">George</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 24 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 3 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 河间大道 1 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">炒蘑菇</li>
+<li class="chip-love">韭葱</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">所有普遍喜欢的礼物（除花）</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">夏季周五</td><td class="sched-detail">6:00–12:00 家 → 12:00–15:00 家附近 → 15:00–20:00 家</td></tr>
+<tr><td class="sched-cond">周日（14 心事件后）</td><td class="sched-detail">6:00–11:00 家 → 11:00–15:00 酒吧 → 15:00–20:00 家</td></tr>
+<tr><td class="sched-cond">周日</td><td class="sched-detail">6:00–10:00 家 → 10:00–14:00 皮埃尔商店 → 14:00–20:00 家</td></tr>
+<tr><td class="sched-cond">冬季 17 日 / 冬季 23 日</td><td class="sched-detail">夜市 / 哈维诊所体检</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">全天在家</td></tr></table>
+      </div>
+      <div class="tip">💡 坐轮椅的老人几乎不出门，直接去他家送礼最方便；14 心事件后周日下午会在酒吧。</div>
+      <div class="ev-panel" id="ev-george"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 3 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：他在家时进入他家</span></div><p class="ev-story">他够不到书架上的东西，你顺手帮他取了下来。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他再寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-jas" class="npc-card" data-name="贾斯" data-en="Jas" data-search="贾斯 jas 玛妮的牧场 玛妮的教女，常和文森特、潘妮在一起；奇怪玩偶（绿/黄）是 1.6 新增最爱，来自矿井挖掘和钓鱼宝箱。 玫瑰仙子 粉红蛋糕 葡萄干布丁 仙女盒 逸异玩偶（奇怪玩偶） 古代玩偶 黄水仙 椰子 8 心 与贾斯、文森特都达到 8 心后，春季晴天 6:00–17:00 进入煤矿森林 文森特示范怎么清理春葱里的虫子，贾斯坚持不让把虫子弄死。" data-tags="other female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-jas" aria-expanded="false">贾斯 <span class="en">Jas</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 4 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 1 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 玛妮的牧场</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">玫瑰仙子</li>
+<li class="chip-love">粉红蛋糕</li>
+<li class="chip-love">葡萄干布丁</li>
+<li class="chip-love">仙女盒</li>
+<li class="chip-love">逸异玩偶（奇怪玩偶）</li>
+<li class="chip-love">古代玩偶</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">椰子</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周二 / 三 / 五（除 9、23 日）</td><td class="sched-detail">6:00–9:00 家 → 9:00–14:00 博物馆 → 14:00–16:20 博物馆附近 → 16:20–17:50 海莉家附近路上 → 17:50 家</td></tr>
+<tr><td class="sched-cond">周六</td><td class="sched-detail">6:00–10:00 家 → 10:00–12:00 艾米丽家附近大树旁 → 12:00–17:00 游乐场 → 17:00–20:00 海莉家附近 → 20:00 家</td></tr>
+<tr><td class="sched-cond">夏季日常</td><td class="sched-detail">6:00–13:20 家附近 → 13:20–16:00 沙滩跳绳 → 16:00–21:00 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–11:00 家 → 11:00–15:00 牧场西边大树 → 15:00–21:00 家</td></tr>
+<tr><td class="sched-cond">冬季 15 日 / 冬季 18 日</td><td class="sched-detail">夜市 / 哈维诊所体检（10:30–16:00）</td></tr></table>
+      </div>
+      <div class="tip">💡 玛妮的教女，常和文森特、潘妮在一起；奇怪玩偶（绿/黄）是 1.6 新增最爱，来自矿井挖掘和钓鱼宝箱。</div>
+      <div class="ev-panel" id="ev-jas"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 1 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：与贾斯、文森特都达到 8 心后，春季晴天 6:00–17:00 进入煤矿森林</span></div><p class="ev-story">文森特示范怎么清理春葱里的虫子，贾斯坚持不让把虫子弄死。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 和文森特是同一段事件。</div></div></div></div>
+    </article>
+    <article id="npc-vincent" class="npc-card" data-name="文森特" data-en="Vincent" data-search="文森特 vincent 柳巷 1 号 山姆的弟弟、乔迪的小儿子；蜗牛用蟹笼在淡水钓，青蛙蛋在矿井青蛙关或沙漠商处获取。 蔓越莓糖果 姜汁汽水 粉红蛋糕 葡萄 蜗牛 青蛙蛋 黄水仙 椰子 8 心 与文森特、贾斯都达到 8 心后，春季晴天 6:00–17:00 进入煤矿森林 他教你怎么处理春葱上的虫子，之后你会得到春葱相关的小彩蛋。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-vincent" aria-expanded="false">文森特 <span class="en">Vincent</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 10 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 1 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 柳巷 1 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">蔓越莓糖果</li>
+<li class="chip-love">姜汁汽水</li>
+<li class="chip-love">粉红蛋糕</li>
+<li class="chip-love">葡萄</li>
+<li class="chip-love">蜗牛</li>
+<li class="chip-love">青蛙蛋</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">椰子</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">9 日 / 23 日</td><td class="sched-detail">6:00–14:00 家 → 14:00–17:00 小镇广场 → 17:00–22:00 家</td></tr>
+<tr><td class="sched-cond">春季 11 日 / 冬季 16 日</td><td class="sched-detail">哈维诊所体检（11:30–16:00）/ 夜市</td></tr>
+<tr><td class="sched-cond">夏季</td><td class="sched-detail">6:00–13:40 家 → 13:40–19:00 沙滩 → 19:00–23:00 家</td></tr>
+<tr><td class="sched-cond">周二 / 三 / 五</td><td class="sched-detail">6:00–9:00 家 → 9:00–14:00 博物馆 → 14:00–17:40 小镇闲逛 → 17:40–22:00 家</td></tr>
+<tr><td class="sched-cond">周六</td><td class="sched-detail">6:00–10:10 家 → 10:10–17:00 小镇广场 → 17:00–22:00 小镇闲逛 → 22:00 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–14:00 家 → 14:00–17:00 小镇闲逛 → 17:00–22:00 家</td></tr></table>
+      </div>
+      <div class="tip">💡 山姆的弟弟、乔迪的小儿子；蜗牛用蟹笼在淡水钓，青蛙蛋在矿井青蛙关或沙漠商处获取。</div>
+      <div class="ev-panel" id="ev-vincent"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 1 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：与文森特、贾斯都达到 8 心后，春季晴天 6:00–17:00 进入煤矿森林</span></div><p class="ev-story">他教你怎么处理春葱上的虫子，之后你会得到春葱相关的小彩蛋。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 和贾斯是同一段事件。</div></div></div></div>
+    </article>
+    <article id="npc-jodi" class="npc-card" data-name="乔迪" data-en="Jodi" data-search="乔迪 jodi 柳巷 1 号 山姆和文森特的母亲、肯特的妻子；周二上午去皮埃尔店“健身”能遇到她。 巧克力蛋糕 薄煎饼 蔬菜杂烩 钻石 帕尔玛奶酪茄子 大黄派 香酥鲈鱼 所有普遍喜欢的礼物（除蒜） 所有蛋（除虚空蛋） 所有水果（除香味浆果） 所有奶类 2 心 好感达到 2 心后进入她的房间 可以在她床头边的抽屉里发现丈夫肯特写来的信。 3 心 好感达到 3 心后自动触发 她寄来炸鱿鱼食谱。 4 心 周一 6:00–9:30 离开农舍 她站在你家门口等你。 7 心 好感达到 7 心后自动触发 她寄来冰淇淋食谱。" data-tags="other female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-jodi" aria-expanded="false">乔迪 <span class="en">Jodi</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 秋季 11 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 4 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 柳巷 1 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">巧克力蛋糕</li>
+<li class="chip-love">薄煎饼</li>
+<li class="chip-love">蔬菜杂烩</li>
+<li class="chip-love">钻石</li>
+<li class="chip-love">帕尔玛奶酪茄子</li>
+<li class="chip-love">大黄派</li>
+<li class="chip-love">香酥鲈鱼</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">所有普遍喜欢的礼物（除蒜）</li>
+<li class="chip-like">所有蛋（除虚空蛋）</li>
+<li class="chip-like">所有水果（除香味浆果）</li>
+<li class="chip-like">所有奶类</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周二</td><td class="sched-detail">6:00–10:10 家 → 10:10–18:20 皮埃尔商店健身 → 18:20–22:20 家</td></tr>
+<tr><td class="sched-cond">周三 / 五（社区中心已修复）</td><td class="sched-detail">6:00–9:00 家 → 9:00–11:00 皮埃尔商店 → 11:00–22:00 家</td></tr>
+<tr><td class="sched-cond">周三 / 五（未修复）</td><td class="sched-detail">6:00–11:00 家 → 11:00–17:00 Joja 超市 → 17:00–22:00 家</td></tr>
+<tr><td class="sched-cond">周六（社区中心已修复）</td><td class="sched-detail">6:00–11:00 家 → 11:00–17:00 社区中心 → 17:00–21:00 家</td></tr>
+<tr><td class="sched-cond">周日</td><td class="sched-detail">6:00–10:00 家 → 10:00–16:00 皮埃尔商店 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–13:30 家 → 13:30–16:00 小镇广场 → 16:00–22:00 家</td></tr>
+<tr><td class="sched-cond">春季 11 / 18 日 / 冬季 17 日</td><td class="sched-detail">哈维诊所体检（11:30–16:00）/ 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 山姆和文森特的母亲、肯特的妻子；周二上午去皮埃尔店“健身”能遇到她。</div>
+      <div class="ev-panel" id="ev-jodi"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 4 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">2 心</span><span class="ev-trig">🎬 触发：好感达到 2 心后进入她的房间</span></div><p class="ev-story">可以在她床头边的抽屉里发现丈夫肯特写来的信。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 探索型事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">她寄来炸鱿鱼食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：周一 6:00–9:30 离开农舍</span></div><p class="ev-story">她站在你家门口等你。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她寄来冰淇淋食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-kent" class="npc-card" data-name="肯特" data-en="Kent" data-search="肯特 kent 柳巷 1 号 第一年在服役，第二年春季 4 日生日时才在镇上；有战争创伤的剧情线，14 心事件后周日下午会去酒吧。 意式蕨菜炖饭 烤榛子 黄水仙 矮人安全手册 所有蛋（除虚空蛋） 所有水果 3 心 i 肯特和乔迪都在家时进入他家 他因为爆米花的事情绪失控，事后向你追问到底该怪谁。 怪乔迪……她应该更清楚才对。 我知道你很难过……但别怪你妻子。 （撒谎）怪我吧……是我要吃爆米花的。 3 心 ii 好感达到 3 心后自动触发 他寄来一份食谱。 7 心 好感达到 7 心后自动触发 他再寄来一份食谱。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-kent" aria-expanded="false">肯特 <span class="en">Kent</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 4 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 3 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 柳巷 1 号</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">意式蕨菜炖饭</li>
+<li class="chip-love">烤榛子</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">矮人安全手册</li>
+<li class="chip-like">所有蛋（除虚空蛋）</li>
+<li class="chip-like">所有水果</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">第二年春季</td><td class="sched-detail">结束服役回到镇上（第一年不在）</td></tr>
+<tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家 / 家附近</td></tr>
+<tr><td class="sched-cond">周五 / 六</td><td class="sched-detail">6:00–7:00 家 → 7:00–10:30 下水道附近 → 10:30–14:00 家 → 14:00–17:00 家北边树下 → 17:00–23:50 酒吧</td></tr>
+<tr><td class="sched-cond">周日（14 心事件后）</td><td class="sched-detail">6:00–8:30 家 → 8:30–11:10 皮埃尔商店 → 11:10–15:00 酒吧 → 15:00–21:00 家</td></tr>
+<tr><td class="sched-cond">周日</td><td class="sched-detail">6:00–10:10 家 → 10:10–16:00 皮埃尔商店 → 16:00–21:00 家 → 21:00–23:00 家门口</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–7:00 家 → 7:00–10:30 下水道附近 → 10:30–14:00 家 → 14:00–17:00 家北边树下 → 17:00–23:00 家附近</td></tr></table>
+      </div>
+      <div class="tip">💡 第一年在服役，第二年春季 4 日生日时才在镇上；有战争创伤的剧情线，14 心事件后周日下午会去酒吧。</div>
+      <div class="ev-panel" id="ev-kent"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 3 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心 I</span><span class="ev-trig">🎬 触发：肯特和乔迪都在家时进入他家</span></div><p class="ev-story">他因为爆米花的事情绪失控，事后向你追问到底该怪谁。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">怪乔迪……她应该更清楚才对。</td><td class="opt-val down">-25</td><td class="opt-res">他生气地让你别插嘴</td></tr><tr><td class="opt-text">我知道你很难过……但别怪你妻子。</td><td class="opt-val up">+50</td><td class="opt-res">最优选项，他认同并道歉</td></tr><tr><td class="opt-text">（撒谎）怪我吧……是我要吃爆米花的。</td><td class="opt-val down">-50</td><td class="opt-res">他说最讨厌谎言</td></tr></tbody></table><div class="ev-note">💡 ±50 的差距，选体谅妻子的那项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心 II</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他再寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-willy" class="npc-card" data-name="威利" data-en="Willy" data-search="威利 willy 鱼店（海滩码头） 卖钓竿、鱼饵和蟹笼；注意“河豚”对他是中立礼物（原资料误列为最爱）；最爱多为海货，鲟鱼冬季湖泊可钓。 鲶鱼 钻石 金锭 铱锭 蜂蜜酒 章鱼 南瓜 海参 鲟鱼 《海洋珠宝之书》 《捕蟹秘籍》 鱼饵和浮漂 石英 蛇齿单线鱼 虎纹鳟鱼 烤鱼 惊喜鲤鱼 法式田螺 3 心 好感达到 3 心后自动触发 他寄来一份食谱。 5 心 好感达到 5 心后自动触发 他再寄来一份食谱。 6 心 6:00–17:10 进入海滩 他在海边和你聊起自己的过往与大海。 7 心 / 9 心 好感达到 7 心、9 心后自动触发 他各寄来一份食谱。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-willy" aria-expanded="false">威利 <span class="en">Willy</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 24 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 4 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 鱼店（海滩码头）</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">鲶鱼</li>
+<li class="chip-love">钻石</li>
+<li class="chip-love">金锭</li>
+<li class="chip-love">铱锭</li>
+<li class="chip-love">蜂蜜酒</li>
+<li class="chip-love">章鱼</li>
+<li class="chip-love">南瓜</li>
+<li class="chip-love">海参</li>
+<li class="chip-love">鲟鱼</li>
+<li class="chip-love">《海洋珠宝之书》</li>
+<li class="chip-love">《捕蟹秘籍》</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">鱼饵和浮漂</li>
+<li class="chip-like">石英</li>
+<li class="chip-like">蛇齿单线鱼</li>
+<li class="chip-like">虎纹鳟鱼</li>
+<li class="chip-like">烤鱼</li>
+<li class="chip-like">惊喜鲤鱼</li>
+<li class="chip-like">法式田螺</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–8:50 鱼店外钓鱼 → 8:50–17:00 店里 → 17:00–22:00 沙滩钓鱼 → 22:00 家</td></tr>
+<tr><td class="sched-cond">雨天 / 周五</td><td class="sched-detail">6:00–8:50 鱼店外钓鱼 → 8:50–17:00 家 → 17:00–23:20 酒吧 → 23:20 家</td></tr>
+<tr><td class="sched-cond">周六</td><td class="sched-detail">6:10–19:00 煤矿森林钓鱼 → 19:00–23:00 酒吧 → 23:00 家</td></tr>
+<tr><td class="sched-cond">冬季</td><td class="sched-detail">6:00–8:50 鱼店外钓鱼 → 8:50–17:00 家 → 17:00–23:20 酒吧</td></tr>
+<tr><td class="sched-cond">春季 9 日 / 夏季 20–21 日</td><td class="sched-detail">哈维诊所体检（10:10–17:00）/ 煤矿森林钓鱼</td></tr>
+<tr><td class="sched-cond">冬季 12–13 日 / 冬季 15–17 日</td><td class="sched-detail">沙滩钓鱼（鱿鱼节）/ 家 → 酒吧 → 家</td></tr></table>
+      </div>
+      <div class="tip">💡 卖钓竿、鱼饵和蟹笼；注意“河豚”对他是中立礼物（原资料误列为最爱）；最爱多为海货，鲟鱼冬季湖泊可钓。</div>
+      <div class="ev-panel" id="ev-willy"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 4 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">5 心</span><span class="ev-trig">🎬 触发：好感达到 5 心后自动触发</span></div><p class="ev-story">他再寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：6:00–17:10 进入海滩</span></div><p class="ev-story">他在海边和你聊起自己的过往与大海。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心 / 9 心</span><span class="ev-trig">🎬 触发：好感达到 7 心、9 心后自动触发</span></div><p class="ev-story">他各寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-gus" class="npc-card" data-name="格斯" data-en="Gus" data-search="格斯 gus 星之果实酒吧 酒吧老板，卖料理和食谱；营业时间 12:00–0:00，白天去他家（酒吧楼上）送礼。 钻石 橙子 法式田螺 鱼肉卷 热带咖喱 黄水仙 松露 所有普遍喜欢的礼物（除卷心菜沙拉） 3 心 好感达到 3 心后自动触发 他寄来鲑鱼晚餐食谱。 4 心 营业时间进入星之果实餐吧（需与潘姆好感 2 心以上） 他坐在桌边神情低落，向你倾诉心事。 5 心 非雨天的 6:00–11:30 离开农舍 他带着一锅酱汁登门，用烹饪比喻你来到星露谷后的变化。 7 心 好感达到 7 心后自动触发 他寄来红莓酱食谱。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-gus" aria-expanded="false">格斯 <span class="en">Gus</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 8 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 4 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 星之果实酒吧</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">钻石</li>
+<li class="chip-love">橙子</li>
+<li class="chip-love">法式田螺</li>
+<li class="chip-love">鱼肉卷</li>
+<li class="chip-love">热带咖喱</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">松露</li>
+<li class="chip-like">所有普遍喜欢的礼物（除卷心菜沙拉）</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">周一</td><td class="sched-detail">6:00–8:30 家 → 8:30–11:00 皮埃尔杂货店 → 11:00–0:00 家</td></tr>
+<tr><td class="sched-cond">周二（社区中心已修复）</td><td class="sched-detail">6:00–8:30 家 → 8:30–12:30 社区中心 → 12:30–0:00 家</td></tr>
+<tr><td class="sched-cond">周日（14 心事件后）</td><td class="sched-detail">全天在家</td></tr>
+<tr><td class="sched-cond">日常</td><td class="sched-detail">全天在酒吧</td></tr>
+<tr><td class="sched-cond">秋季 4 日</td><td class="sched-detail">哈维诊所体检（10:30–16:00）</td></tr></table>
+      </div>
+      <div class="tip">💡 酒吧老板，卖料理和食谱；营业时间 12:00–0:00，白天去他家（酒吧楼上）送礼。</div>
+      <div class="ev-panel" id="ev-gus"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 4 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来鲑鱼晚餐食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：营业时间进入星之果实餐吧（需与潘姆好感 2 心以上）</span></div><p class="ev-story">他坐在桌边神情低落，向你倾诉心事。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">5 心</span><span class="ev-trig">🎬 触发：非雨天的 6:00–11:30 离开农舍</span></div><p class="ev-story">他带着一锅酱汁登门，用烹饪比喻你来到星露谷后的变化。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他寄来红莓酱食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-pam" class="npc-card" data-name="潘姆" data-en="Pam" data-search="潘姆 pam 拖车 潘妮的母亲，巴士司机；巴士修复（社区中心完成或买 joja 会员）后白天在巴士站；淡啤酒在酒吧有售。 啤酒 仙人掌果子 琉璃山药 蜂蜜酒 淡啤酒 防风草 防风草汤 黄水仙 所有水果（除仙人掌果子） 所有奶类 3 心 好感达到 3 心后自动触发 她寄来一份食谱。 7 心 好感达到 7 心后自动触发 她再寄来一份食谱。 9 心 在木匠商店购买「社区升级」并完成 4 天后，且好感达 9 心时进入她家 她兴致勃勃地和你聊起信仰与尤巴。 抱歉潘姆，但尤巴不是真的……" data-tags="other female town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-pam" aria-expanded="false">潘姆 <span class="en">Pam</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 春季 18 日</span><span class="npc-badge">村民</span><span class="sex-badge f">♀ 女性</span><span class="ev-badge">💞 3 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 拖车</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">啤酒</li>
+<li class="chip-love">仙人掌果子</li>
+<li class="chip-love">琉璃山药</li>
+<li class="chip-love">蜂蜜酒</li>
+<li class="chip-love">淡啤酒</li>
+<li class="chip-love">防风草</li>
+<li class="chip-love">防风草汤</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">所有水果（除仙人掌果子）</li>
+<li class="chip-like">所有奶类</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">日常（巴士未修复）</td><td class="sched-detail">6:00–12:00 家 → 12:00–16:00 Joja 超市 → 16:00–0:00 酒吧 → 0:00 家</td></tr>
+<tr><td class="sched-cond">日常（巴士已修复）</td><td class="sched-detail">6:00–8:30 家 → 8:30–17:00 巴士站 → 17:00–0:00 酒吧 → 0:00 家</td></tr>
+<tr><td class="sched-cond">春季 25 日</td><td class="sched-detail">哈维诊所体检（11:30–16:00）→ 酒吧</td></tr>
+<tr><td class="sched-cond">冬季 12–13 日</td><td class="sched-detail">全天在沙滩观看鱿鱼节</td></tr></table>
+      </div>
+      <div class="tip">💡 潘妮的母亲，巴士司机；巴士修复（社区中心完成或买 Joja 会员）后白天在巴士站；淡啤酒在酒吧有售。</div>
+      <div class="ev-panel" id="ev-pam"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 3 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">她寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">她再寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">9 心</span><span class="ev-trig">🎬 触发：在木匠商店购买「社区升级」并完成 4 天后，且好感达 9 心时进入她家</span></div><p class="ev-story">她兴致勃勃地和你聊起信仰与尤巴。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">抱歉潘姆，但尤巴不是真的……</td><td class="opt-val down">-1000</td><td class="opt-res">⚠️ 全游戏第二惨的扣分</td></tr></tbody></table><div class="ev-note">💡 ⚠️ 别跟她争论信仰，-1000 好感（约 4 颗心）。</div></div></div></div>
+    </article>
+    <article id="npc-linus" class="npc-card" data-name="莱纳斯" data-en="Linus" data-search="莱纳斯 linus 煤矿森林的帐篷 住在煤矿森林的“野人”爷爷，采集类礼物几乎都吃；冬季去温泉附近找，春秋季在深山湖泊。 蓝莓千层酥 仙人掌果子 椰子 海之菜肴 山药 小巷自助餐（alleyway buffet） 黄水仙 生姜 鸡油菌 普通蘑菇 蒲公英 榛子 冬青树 韭葱 紫蘑菇 大葱 0 心 好感达 50 点后，非雨天的 20:00–24:00 进入小镇 你在垃圾桶边遇见他，他把找到的东西分给你，是他处世观念的第一次展现。 3 心 好感达到 3 心后自动触发 他寄来一份食谱。 4 心 非雨天的 20:00–24:00 前往深山他帐篷附近 他在帐篷外和你聊天，讲起自己选择的生活方式。 7 心 好感达到 7 心后自动触发 他再寄来一份食谱。 8 心 非雨天的 9:00–17:00 离开木匠的商店 他在门口等你，带你去看他的「家」，并讲述他与小镇的关系。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-linus" aria-expanded="false">莱纳斯 <span class="en">Linus</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 3 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 5 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 煤矿森林的帐篷</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">蓝莓千层酥</li>
+<li class="chip-love">仙人掌果子</li>
+<li class="chip-love">椰子</li>
+<li class="chip-love">海之菜肴</li>
+<li class="chip-love">山药</li>
+<li class="chip-love">小巷自助餐（Alleyway Buffet）</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">黄水仙</li>
+<li class="chip-like">生姜</li>
+<li class="chip-like">鸡油菌</li>
+<li class="chip-like">普通蘑菇</li>
+<li class="chip-like">蒲公英</li>
+<li class="chip-like">榛子</li>
+<li class="chip-like">冬青树</li>
+<li class="chip-like">韭葱</li>
+<li class="chip-like">紫蘑菇</li>
+<li class="chip-like">大葱</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">雨天</td><td class="sched-detail">全天在家 / 帐篷附近</td></tr>
+<tr><td class="sched-cond">春季</td><td class="sched-detail">6:00–6:30 家 → 6:30–9:30 帐篷附近 → 9:30–14:00 深山湖泊 → 14:00–19:00 帐篷附近 → 19:00–23:30 家</td></tr>
+<tr><td class="sched-cond">夏季</td><td class="sched-detail">6:00–6:30 家 → 6:30–13:00 帐篷附近 → 13:00–16:00 深山湖泊 → 16:00–20:20 帐篷附近 → 20:20 家</td></tr>
+<tr><td class="sched-cond">秋季</td><td class="sched-detail">6:00–7:00 家 → 7:00–9:00 帐篷附近 → 9:00–14:00 温泉 → 14:00–18:00 深山湖泊 → 18:00 家</td></tr>
+<tr><td class="sched-cond">冬季</td><td class="sched-detail">6:00–11:00 家 → 11:00–14:00 帐篷附近 → 14:00–18:00 温泉 → 18:00 家</td></tr>
+<tr><td class="sched-cond">冬季 15 日</td><td class="sched-detail">6:00–11:00 家 → 11:00–16:00 帐篷附近 → 16:00–23:30 夜市</td></tr></table>
+      </div>
+      <div class="tip">💡 住在煤矿森林的“野人”爷爷，采集类礼物几乎都吃；冬季去温泉附近找，春秋季在深山湖泊。</div>
+      <div class="ev-panel" id="ev-linus"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 5 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">0 心</span><span class="ev-trig">🎬 触发：好感达 50 点后，非雨天的 20:00–24:00 进入小镇</span></div><p class="ev-story">你在垃圾桶边遇见他，他把找到的东西分给你，是他处世观念的第一次展现。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 必须在第 1 年内触发，且好感不能已经太高。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：非雨天的 20:00–24:00 前往深山他帐篷附近</span></div><p class="ev-story">他在帐篷外和你聊天，讲起自己选择的生活方式。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他再寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">8 心</span><span class="ev-trig">🎬 触发：非雨天的 9:00–17:00 离开木匠的商店</span></div><p class="ev-story">他在门口等你，带你去看他的「家」，并讲述他与小镇的关系。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 莱纳斯线的高潮剧情。</div></div></div></div>
+    </article>
+    <article id="npc-clint" class="npc-card" data-name="克林特" data-en="Clint" data-search="克林特 clint 铁匠铺 升级工具、敲晶球都找他；注意“水紫洋蓟”应为洋蓟蘸酱（洋蓟+牛奶烹饪），意式蕨菜炖饭也是最爱；暗恋艾米丽。 紫水晶 海蓝宝石 绿宝石 翡翠 万象晶球 红宝石 黄水晶 金锭 铱锭 洋蓟蘸酱 意式蕨菜炖饭 铜锭 铁锭 采矿月刊 3 心 i 周一 19:00–23:00 进入星之果实餐吧 他向你请教该怎么吸引女性。 「用力量与魅力打动她们。」 「表现得疯一点，让人猜不透。」 「自然一点……做你自己。」 「像对待男性一样对待女性。」 3 心 ii 好感达到 3 心后自动触发 他寄来海藻汤食谱。 6 心 9:00–18:30 从煤矿森林方向进入小镇（需先看够 3 心 i 事件） 你撞见他躲在灌木丛里偷看艾米丽，他说本来想去约她，却只敢躲在远处看。 7 心 好感达到 7 心后自动触发 他寄来炖豆锅食谱。" data-tags="other male town">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-clint" aria-expanded="false">克林特 <span class="en">Clint</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 26 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 4 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 铁匠铺</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">紫水晶</li>
+<li class="chip-love">海蓝宝石</li>
+<li class="chip-love">绿宝石</li>
+<li class="chip-love">翡翠</li>
+<li class="chip-love">万象晶球</li>
+<li class="chip-love">红宝石</li>
+<li class="chip-love">黄水晶</li>
+<li class="chip-love">金锭</li>
+<li class="chip-love">铱锭</li>
+<li class="chip-love">洋蓟蘸酱</li>
+<li class="chip-love">意式蕨菜炖饭</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">铜锭</li>
+<li class="chip-like">铁锭</li>
+<li class="chip-like">采矿月刊</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">日常</td><td class="sched-detail">6:00–19:00 铁匠铺 → 19:00–0:00 酒吧 → 0:00 家</td></tr>
+<tr><td class="sched-cond">周五（社区中心已修复）</td><td class="sched-detail">6:00–8:50 家 → 8:50–17:00 社区中心锅炉房 → 17:00–0:00 酒吧</td></tr>
+<tr><td class="sched-cond">雨天</td><td class="sched-detail">6:00–19:00 家 → 19:00–0:00 酒吧</td></tr>
+<tr><td class="sched-cond">冬季 15 日 / 冬季 16 日</td><td class="sched-detail">夜市（17:00–0:00）/ 哈维诊所体检（10:30–16:00）</td></tr></table>
+      </div>
+      <div class="tip">💡 升级工具、敲晶球都找他；注意“水紫洋蓟”应为洋蓟蘸酱（洋蓟+牛奶烹饪），意式蕨菜炖饭也是最爱；暗恋艾米丽。</div>
+      <div class="ev-panel" id="ev-clint"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 4 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心 I</span><span class="ev-trig">🎬 触发：周一 19:00–23:00 进入星之果实餐吧</span></div><p class="ev-story">他向你请教该怎么吸引女性。</p><table class="ev-opts"><thead><tr><th>选项</th><th>好感</th><th>结果 / 反应</th></tr></thead><tbody><tr><td class="opt-text">「用力量与魅力打动她们。」</td><td class="opt-val up">+25</td><td class="opt-res">他说会记住</td></tr><tr><td class="opt-text">「表现得疯一点，让人猜不透。」</td><td class="opt-val up">+25</td><td class="opt-res">他说会记住</td></tr><tr><td class="opt-text">「自然一点……做你自己。」</td><td class="opt-val zero">无影响</td><td class="opt-res">他说问题就在这：做自己反而没用</td></tr><tr><td class="opt-text">「像对待男性一样对待女性。」</td><td class="opt-val up">+50</td><td class="opt-res">最优选项</td></tr></tbody></table><div class="ev-note">💡 最高 +50，选平等尊重那项。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心 II</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来海藻汤食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">6 心</span><span class="ev-trig">🎬 触发：9:00–18:30 从煤矿森林方向进入小镇（需先看够 3 心 I 事件）</span></div><p class="ev-story">你撞见他躲在灌木丛里偷看艾米丽，他说本来想去约她，却只敢躲在远处看。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 ⚠️ 一旦你和艾米丽结婚、或看过她的 8 心/10 心事件，这段就永远不会触发。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">7 心</span><span class="ev-trig">🎬 触发：好感达到 7 心后自动触发</span></div><p class="ev-story">他寄来炖豆锅食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div></div></div>
+    </article>
+    <article id="npc-wizard" class="npc-card" data-name="法师" data-en="Wizard（M. Rasmodius）" data-search="法师 wizard（m. rasmodius） 法师塔（煤矿森林西侧） 原资料“诞之书”应为神秘之书；在他这里可以买传送图腾和各种法师建筑（水方尖塔、祝尼魔屋等）。 神秘之书（book of mysteries） 紫蘑菇 太阳精华 大海参 虚空精华 铱锭 石英 4 心 好感达到 4 心后进入法师塔 解锁法师塔地下室，可使用「幻象神龛」花 500 金重新设定角色形象（性别、肤色等）。" data-tags="other male special">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-wizard" aria-expanded="false">法师 <span class="en">Wizard（M. Rasmodius）</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 17 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 1 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 法师塔（煤矿森林西侧）</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">神秘之书（Book of Mysteries）</li>
+<li class="chip-love">紫蘑菇</li>
+<li class="chip-love">太阳精华</li>
+<li class="chip-love">大海参</li>
+<li class="chip-love">虚空精华</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">铱锭</li>
+<li class="chip-like">石英</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">全年</td><td class="sched-detail">全天在法师塔内（节日除外），完成社区中心修复后即可进入塔中与其交流</td></tr></table>
+      </div>
+      <div class="tip">💡 原资料“诞之书”应为神秘之书；在他这里可以买传送图腾和各种法师建筑（水方尖塔、祝尼魔屋等）。</div>
+      <div class="ev-panel" id="ev-wizard"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 1 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">4 心</span><span class="ev-trig">🎬 触发：好感达到 4 心后进入法师塔</span></div><p class="ev-story">解锁法师塔地下室，可使用「幻象神龛」花 500 金重新设定角色形象（性别、肤色等）。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 唯一的法师事件，实用度很高。</div></div></div></div>
+    </article>
+    <article id="npc-dwarf" class="npc-card" data-name="矮人" data-en="Dwarf" data-search="矮人 dwarf 矿井东部通道 需要先在矿井集齐 4 张矮人卷轴、兑换矮人语手册后才能与其交流购物；岩浆鳗鱼在矿井 100 层以后的岩浆钓点。 紫水晶 海蓝宝石 翡翠 绿宝石 万象晶球 红宝石 黄水晶 岩浆鳗鱼 山洞萝卜 石英 约 1/5 心（50 点） 好感达到 50 点后进入下水道（须已在科罗布斯处买过星之果实） 矮人在下水道找到科罗布斯，指责影民害死了自己的族人，科罗布斯反驳，两人当着你的面对峙。" data-tags="other male special">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-dwarf" aria-expanded="false">矮人 <span class="en">Dwarf</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 夏季 22 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 1 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 矿井东部通道</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">紫水晶</li>
+<li class="chip-love">海蓝宝石</li>
+<li class="chip-love">翡翠</li>
+<li class="chip-love">绿宝石</li>
+<li class="chip-love">万象晶球</li>
+<li class="chip-love">红宝石</li>
+<li class="chip-love">黄水晶</li>
+<li class="chip-love">岩浆鳗鱼</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">山洞萝卜</li>
+<li class="chip-like">石英</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">全年</td><td class="sched-detail">全天在矿井东部的商店里</td></tr></table>
+      </div>
+      <div class="tip">💡 需要先在矿井集齐 4 张矮人卷轴、兑换矮人语手册后才能与其交流购物；岩浆鳗鱼在矿井 100 层以后的岩浆钓点。</div>
+      <div class="ev-panel" id="ev-dwarf"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 1 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">约 1/5 心（50 点）</span><span class="ev-trig">🎬 触发：好感达到 50 点后进入下水道（须已在科罗布斯处买过星之果实）</span></div><p class="ev-story">矮人在下水道找到科罗布斯，指责影民害死了自己的族人，科罗布斯反驳，两人当着你的面对峙。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 需要先学会矮人语（拿齐 4 卷矮人语卷轴）才能和他交流送礼。</div></div></div></div>
+    </article>
+    <article id="npc-krobus" class="npc-card" data-name="科罗布斯" data-en="Krobus" data-search="科罗布斯 krobus 下水道 唯一的怪物室友（不可结婚、可当室友）；卖虚空蛋等稀有货；送礼前记得先见过他。 钻石 铱锭 南瓜 虚空蛋 虚空蛋黄酱 野山葵 怪物图鉴 怪物香水 金锭 石英 海泡布丁 奇怪的小面包 3 心 好感达到 3 心后自动触发 他寄来一份食谱。 14 心 非雨天的 20:00–1:00 进入海滩 他坐在码头边看月光水母，一只海怪突然出现。" data-tags="other male special">
+      <div class="npc-head">
+        <div class="npc-title">
+          <h3><button class="npc-name-btn" type="button" data-target="ev-krobus" aria-expanded="false">科罗布斯 <span class="en">Krobus</span><span class="caret">▾</span><span class="hint">点我查看剧情</span></button></h3>
+          <div class="badges"><span class="bday-badge">🎂 冬季 1 日</span><span class="npc-badge">村民</span><span class="sex-badge m">♂ 男性</span><span class="ev-badge">💞 2 段剧情</span></div>
+        </div>
+        <div class="npc-home">📍 下水道</div>
+      </div>
+      <div class="gift-block">
+        <div class="gift-col">
+          <h4>❤️ 最爱 <em>+80</em></h4>
+          <ul class="chips"><li class="chip-love">钻石</li>
+<li class="chip-love">铱锭</li>
+<li class="chip-love">南瓜</li>
+<li class="chip-love">虚空蛋</li>
+<li class="chip-love">虚空蛋黄酱</li>
+<li class="chip-love">野山葵</li>
+<li class="chip-love">怪物图鉴</li>
+<li class="chip-love">怪物香水</li></ul>
+        </div>
+        <div class="gift-col">
+          <h4>👍 喜欢 <em>+45</em></h4>
+          <ul class="chips"><li class="chip-like">金锭</li>
+<li class="chip-like">石英</li>
+<li class="chip-like">海泡布丁</li>
+<li class="chip-like">奇怪的小面包</li></ul>
+        </div>
+      </div>
+      <div class="sched">
+        <h4>🗓️ 行程速查</h4>
+        <table class="sched-table"><tr><td class="sched-cond">全年</td><td class="sched-detail">全天在下水道（完成社区中心修复或 Joja 路线后，从镇下水道口进入）</td></tr></table>
+      </div>
+      <div class="tip">💡 唯一的怪物室友（不可结婚、可当室友）；卖虚空蛋等稀有货；送礼前记得先见过他。</div>
+      <div class="ev-panel" id="ev-krobus"><div class="ev-inner"><h4 class="ev-title">💞 好感剧情事件 · 共 2 段</h4><div class="ev-item"><div class="ev-head"><span class="ev-heart">3 心</span><span class="ev-trig">🎬 触发：好感达到 3 心后自动触发</span></div><p class="ev-story">他寄来一份食谱。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 邮件事件。</div></div><div class="ev-item"><div class="ev-head"><span class="ev-heart">14 心</span><span class="ev-trig">🎬 触发：非雨天的 20:00–1:00 进入海滩</span></div><p class="ev-story">他坐在码头边看月光水母，一只海怪突然出现。</p><div class="ev-noopt">（本段无对话选项）</div><div class="ev-note">💡 无选项。</div></div></div></div>
+    </article></div>
+</section>
+
+<section id="find">
+  <h2 class="sec-title">🔍 找人技巧 · 体检日速查</h2>
+  <p class="sec-desc">按“时间 × 天气 × 特殊日”找人，比满地图乱转高效得多。</p>
+  <div class="find-grid">
+    <div class="find-box">
+      <h3>🕗 按时间段找人</h3>
+      <ul>
+        <li>每天 8:30–12:00：哈维基本在诊所</li>
+        <li>9:00–17:00：皮埃尔在杂货店看店</li>
+        <li>12:00–0:00：格斯全天泡在酒吧</li>
+        <li>白天：玛妮在牧场、罗宾在木匠店、克林特在铁匠铺</li>
+        <li>18:00 后：酒吧最热闹（谢恩、潘姆、塞巴斯蒂安、艾利欧特…）</li>
+        <li>法师塔 / 矿井矮人 / 下水道科罗布斯 / 沙漠桑迪：全天在家，直接上门</li>
+      </ul>
+    </div>
+    <div class="find-box">
+      <h3>🌧 按天气找人</h3>
+      <ul>
+        <li>雨天大批 NPC 宅家：海莉、艾利欧特、玛鲁、乔治、艾芙琳、贾斯、文森特、乔迪、肯特、德米特里厄斯</li>
+        <li>雨天照常出门的例外：谢恩（Joja/酒吧）、克林特（酒吧）、威利（家/酒吧）、莱纳斯（帐篷附近）</li>
+        <li>节日当天所有人按节日行程聚集在广场，不按日常路线</li>
+        <li>冬季 15–17 夜市：大批村民在夜市，冬季 16 日尤其好找</li>
+      </ul>
+    </div>
+    <div class="find-box">
+      <h3>🏥 哈维诊所体检日（全员固定）</h3>
+      <table class="clinic-table"><thead><tr><th>NPC</th><th>体检日</th></tr></thead><tbody><tr><td>塞巴斯蒂安</td><td>夏 4</td></tr><tr><td>山姆</td><td>秋 11</td></tr><tr><td>亚历克斯</td><td>夏 16</td></tr><tr><td>玛鲁</td><td>夏 10</td></tr><tr><td>阿比盖尔</td><td>春 4</td></tr><tr><td>艾米丽</td><td>冬 11</td></tr><tr><td>莉亚</td><td>春 16</td></tr><tr><td>潘妮</td><td>冬 4</td></tr><tr><td>卡洛琳</td><td>秋 25</td></tr><tr><td>玛妮</td><td>秋 18、冬 18</td></tr><tr><td>罗宾</td><td>夏 18</td></tr><tr><td>德米特里厄斯</td><td>夏 25</td></tr><tr><td>艾芙琳</td><td>春 2、冬 23</td></tr><tr><td>乔治</td><td>冬 23</td></tr><tr><td>贾斯</td><td>冬 18</td></tr><tr><td>文森特</td><td>春 11</td></tr><tr><td>乔迪</td><td>春 11、春 18</td></tr><tr><td>威利</td><td>春 9</td></tr><tr><td>格斯</td><td>秋 4</td></tr><tr><td>潘姆</td><td>春 25</td></tr><tr><td>海莉</td><td>冬 9</td></tr><tr><td>克林特</td><td>冬 16</td></tr></tbody></table>
+    </div>
+    <div class="find-box">
+      <h3>📌 特殊日程备忘</h3>
+      <ul>
+        <li>婚礼季：花舞节（春 24）可邀请心仪对象跳舞</li>
+        <li>复活节（春 13）、夏威夷宴会（夏 11）、星露谷展览会（秋 16）、万灵节（秋 27）</li>
+        <li>冬季盛宴（冬 8）、鱿鱼节（冬 12–13）、夜市（冬 15–17）、冬日星盛宴（冬 25）</li>
+        <li>潘妮周二/三在博物馆教小孩、周四五六下午在冰淇淋摊打工</li>
+        <li>艾米丽每天 15:30–0:30 在酒吧上班，白天送礼最稳</li>
+        <li>雷欧 6 心后从姜岛搬来深山树屋；桑迪需修复巴士或沙漠图腾</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="errata">
+  <h2 class="sec-title">📝 数据勘误与来源说明</h2>
+  <p class="sec-desc">以下为本次攻略相对原始资料（上传的 Markdown + 图片）的修正与补充，均已用 wiki 二次确认。</p>
+  <div class="errata-box">
+    <table class="errata-table">
+      <thead><tr><th>项目</th><th>原始资料</th><th>核对修正后</th></tr></thead>
+      <tbody><tr><td>塞巴斯蒂安 · 最爱</td><td><span class="err-old">混晶</span></td><td><span class="err-new">泪晶（Frozen Tear，矿井 40–79 层可采）</span></td></tr><tr><td>法师 · 最爱</td><td><span class="err-old">诞之书</span></td><td><span class="err-new">神秘之书（Book of Mysteries）</span></td></tr><tr><td>艾芙琳 · 最爱</td><td><span class="err-old">甜品</span></td><td><span class="err-new">甜菜（Beet，秋季种植；葡萄干为烘干机制作，正确保留）</span></td></tr><tr><td>威利 · 最爱</td><td><span class="err-old">河豚</span></td><td><span class="err-new">河豚为中立礼物，非最爱；补充鲟鱼与《海洋珠宝之书》</span></td></tr><tr><td>桑迪</td><td><span class="err-old">墨迪</span></td><td><span class="err-new">官方中文译名为“桑迪”</span></td></tr><tr><td>克林特 · 最爱</td><td><span class="err-old">水紫洋蓟</span></td><td><span class="err-new">洋蓟蘸酱（Artichoke Dip）；并补充意式蕨菜炖饭</span></td></tr><tr><td>莉亚 · 最爱</td><td><span class="err-old">（漏记）</span></td><td><span class="err-new">补充虞美人籽松糕</span></td></tr><tr><td>潘妮 · 最爱</td><td><span class="err-old">（漏记）</span></td><td><span class="err-new">补充所有书籍</span></td></tr><tr><td>亚历克斯 · 最爱</td><td><span class="err-old">钢墙铁壁</span></td><td><span class="err-new">经 wiki 确认正确：即健身书《Jack Be Nimble, Jack Be Thick》（+1 防御）</span></td></tr><tr><td>罗宾 · 最爱</td><td><span class="err-old">伐木秘事</span></td><td><span class="err-new">经 wiki 确认正确：Woody&#x27;s Secret；樵夫周刊为“喜欢”亦正确</span></td></tr><tr><td>贾斯 · 最爱</td><td><span class="err-old">逸异玩偶</span></td><td><span class="err-new">经 wiki 确认正确：奇怪玩偶（Strange Doll，1.6 新增）</span></td></tr><tr><td>玛鲁 · 最爱</td><td><span class="err-old">矮人小工具</span></td><td><span class="err-new">经 wiki 确认正确（1.6 新增）</span></td></tr></tbody>
+    </table>
+    <div class="src-note">
+      <b>数据来源：</b>Stardew Valley 英文 Wiki（stardewvalleywiki.com，逐项核对 20+ 位村民的生日 / 礼物 / 行程）、灰机 Wiki 中文礼物总表（34 位村民生日与喜好全量比对）、中文社区攻略（电玩帮 / 游侠等）交叉验证。<br>
+      <b>好感剧情来源：</b>Stardew Valley Wiki 各村民条目的 Heart Events 原始条目（含每个对话选项的点数）、B站专栏《星露谷物语好感度事件（自用）》（cv23639404，触发条件全量比对）、中文攻略站点关键选项数值复核（潘妮 -1500、莉亚 -100、阿比盖尔 -100、艾芙琳 ±100 等）。<br>
+      <b>说明：</b>行程为各季节通用规律，实际以游戏内心事件、节日、社区中心 / Joja 完成度为准；送礼前建议再瞄一眼当日行程表。小红书 App 内登录未在沙箱环境完成，已用公开可检索的中文攻略内容完成替代核对。
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="modal-mask" id="evModal" role="dialog" aria-modal="true" aria-label="NPC 好感剧情">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="mTitle">好感剧情</h3>
+      <span class="mcount" id="mCount"></span>
+      <div class="modal-nav">
+        <button type="button" id="mPrev">← 上一位</button>
+        <button type="button" id="mNext">下一位 →</button>
+      </div>
+      <button type="button" class="modal-close" id="mClose" aria-label="关闭">✕</button>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <b>星露谷物语 NPC 全攻略</b> · 34 位村民 · 行程 / 喜好 / 生日 / 好感剧情 · 数值经 Wiki、B站专栏与中文攻略多重核对<br>
+    生成于 2026-10 · 适用游戏版本 1.6 · 仅供玩家参考，游戏内以实际显示为准
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input=document.getElementById('npcSearch');
+  var chips=document.querySelectorAll('.fchip');
+  var cards=document.querySelectorAll('.npc-card');
+  var activeFilter='all';
+  function apply(){
+    var q=(input&&input.value||'').trim().toLowerCase();
+    cards.forEach(function(c){
+      var name=(c.getAttribute('data-search')||c.getAttribute('data-name')+' '+c.getAttribute('data-en')).toLowerCase();
+      var tags=(c.getAttribute('data-tags')||'').split(' ');
+      var okQ=!q||name.indexOf(q)>-1;
+      var okF=activeFilter==='all'||tags.indexOf(activeFilter)>-1;
+      c.classList.toggle('hidden',!(okQ&&okF));
+    });
+  }
+  chips.forEach(function(ch){
+    ch.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('active')});
+      ch.classList.add('active');
+      activeFilter=ch.getAttribute('data-f');
+      apply();
+    });
+  });
+  if(input){input.addEventListener('input',apply);}
+  apply();
+
+  /* ---- 好感剧情弹窗（默认全部收起，点 NPC 名字才弹出） ---- */
+  var mask=document.getElementById('evModal');
+  var mTitle=document.getElementById('mTitle');
+  var mCount=document.getElementById('mCount');
+  var mBody=document.getElementById('mBody');
+  var prevBtn=document.getElementById('mPrev');
+  var nextBtn=document.getElementById('mNext');
+  var lastFocus=null;
+  // 按页面顺序收集所有有剧情的 NPC
+  var order=Array.prototype.slice.call(document.querySelectorAll('.npc-card')).filter(function(c){
+    return c.querySelector('.npc-name-btn');
+  }).map(function(c){
+    var b=c.querySelector('.npc-name-btn');
+    return {name:c.getAttribute('data-name'),card:c,btn:b,panel:document.getElementById(b.getAttribute('data-target'))};
+  });
+  var curIdx=-1;
+
+  function render(idx){
+    var it=order[idx];
+    if(!it)return;
+    curIdx=idx;
+    mTitle.textContent='💞 '+it.name+' · 好感剧情';
+    mCount.textContent=it.panel.querySelectorAll('.ev-item').length+' 段事件';
+    mBody.innerHTML=it.panel.querySelector('.ev-inner').innerHTML;
+    mBody.scrollTop=0;
+    prevBtn.disabled=idx<=0;
+    nextBtn.disabled=idx>=order.length-1;
+  }
+  function openModal(idx){
+    lastFocus=document.activeElement;
+    render(idx);
+    mask.classList.add('show');
+    document.body.classList.add('modal-open');
+  }
+  function closeModal(){
+    mask.classList.remove('show');
+    document.body.classList.remove('modal-open');
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  document.querySelectorAll('.npc-name-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var idx=order.findIndex(function(o){return o.btn===b;});
+      if(idx>-1)openModal(idx);
+    });
+  });
+  document.getElementById('mClose').addEventListener('click',closeModal);
+  prevBtn.addEventListener('click',function(){if(curIdx>0)render(curIdx-1)});
+  nextBtn.addEventListener('click',function(){if(curIdx<order.length-1)render(curIdx+1)});
+  // 点遮罩空白处关闭
+  mask.addEventListener('click',function(e){if(e.target===mask)closeModal();});
+  // ESC 关闭
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mask.classList.contains('show'))closeModal();});
+
+  // 「全部剧情一览」：一个弹窗看完所有 NPC
+  var allBtn=document.getElementById('allEvents');
+  if(allBtn){
+    allBtn.addEventListener('click',function(){
+      lastFocus=document.activeElement;
+      mTitle.textContent='📜 全部 NPC 剧情一览';
+      mCount.textContent=order.length+' 位村民';
+      var html='';
+      order.forEach(function(o){
+        html+='<div class="ev-item"><div class="ev-head"><span class="ev-heart">'+o.name+'</span>'
+             +'<span class="ev-trig">'+o.panel.querySelectorAll('.ev-item').length+' 段事件</span></div>'
+             +o.panel.querySelector('.ev-inner').innerHTML+'</div>';
+      });
+      mBody.innerHTML=html;
+      mBody.scrollTop=0;
+      prevBtn.disabled=true;nextBtn.disabled=true;
+      mask.classList.add('show');
+      document.body.classList.add('modal-open');
+    });
+  }
+})();
+</script>
+</body>
+</html>
